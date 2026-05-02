@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlockPi — Stay focused. Browse better.</title>
+  <link rel="icon" type="image/png" href="assets/images/icon128.png" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Material Symbols -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-content container">
+      <div class="logo-group">
+        <img src="assets/images/icon128.png" width="36" height="36" alt="BlockPi Logo" />
+        <span class="logo-text">Block<span style="color: var(--primary);">Pi</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#showcase">Inside</a>
+        <a href="#install">Install</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="BlockPi.zip" download class="neo-btn-outline neo-btn-nav">Get BlockPi Free</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="hero-left">
+      <div class="live-stats" id="stats-counter-container">
+        Users have reclaimed <span class="stats-number" id="stats-counter">0</span> minutes of focus today
+      </div>
+      <h1>
+        Stay focused.<br>
+        <span class="highlight">Browse better.</span>
+      </h1>
+
+      <p>
+        Block distractions, stay productive, and take control of your digital life — completely locally, zero trackers.
+      </p>
+
+      <div class="actions">
+        <a href="BlockPi.zip" download class="neo-btn">Get BlockPi Free</a>
+        <a href="#features" class="neo-btn-outline">Explore features</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="visual" aria-hidden="true">
+        <div class="glow"></div>
+        <img src="assets/images/final_mascot.png" alt="Mascot blocking distractions" class="mascot" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section container">
+    <div class="section-header">
+      <h2 class="section-title highlight">Core Features</h2>
+      <p class="section-desc">Meet your focus companions. Everything you need to stay focused, perfectly integrated.</p>
+    </div>
+
+    <!-- Tier 1: Primary Features -->
+    <div class="features-grid">
+      <!-- 1. Smart Site Blocking (The Guardian) -->
+      <div class="neo-card f-card accent">
+        <div class="f-card-content">
+          <h3 class="highlight-dark">The Guardian</h3>
+          <p style="margin-bottom: 20px; font-weight: 500;">Blocks distractions and protects your focus. Smart site
+            blocking when you need it.</p>
+          <a href="#showcase">
+            <div class="f-icon-circle"><span class="material-symbols-outlined">arrow_forward</span></div>
+            Smart Blocking
+          </a>
+        </div>
+        <div class="f-card-image">
+          <img src="assets/images/m_guardian.png" alt="The Guardian" class="feature-mascot-img" />
+        </div>
+      </div>
+
+      <!-- 2. Digital Balance (The Zen Master) -->
+      <div class="neo-card f-card primary">
+        <div class="f-card-content">
+          <h3 class="highlight-dark">The Zen Master</h3>
+          <p style="margin-bottom: 20px; font-weight: 500;">Helps you build healthy habits and achieve long-term digital
+            balance.</p>
+          <a href="#showcase">
+            <div class="f-icon-circle"><span class="material-symbols-outlined">arrow_forward</span></div>
+            Digital Balance
+          </a>
+        </div>
+        <div class="f-card-image">
+          <img src="assets/images/m_zen.png" alt="The Zen Master" class="feature-mascot-img" />
+        </div>
+      </div>
+
+      <!-- 3. Productivity Insights (The Analyzer) -->
+      <div class="neo-card f-card dark">
+        <div class="f-card-content">
+          <h3 class="highlight">The Analyzer</h3>
+          <p style="margin-bottom: 20px;">Turns your progress into insights so you can keep improving your digital
+            habits.</p>
+          <a href="#showcase">
+            <div class="f-icon-circle"><span class="material-symbols-outlined">arrow_forward</span></div>
+            Insights
+          </a>
+        </div>
+        <div class="f-card-image">
+          <img src="assets/images/m_analyzer.png" alt="The Analyzer" class="feature-mascot-img" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: Supporting Features -->
+    <div class="features-secondary">
+      <!-- 4. Deep Focus Timer (The Focuser) -->
+      <div class="neo-card f-card small primary">
+        <div class="f-card-content">
+          <h3 class="highlight-dark">The Focuser</h3>
+          <p style="margin-bottom: 20px; font-weight: 500;">Keeps you on track with smart timers and gentle reminders.
+            Built-in Pomodoro.</p>
+        </div>
+        <div class="f-card-image" style="width: 100px; height: 100px;">
+          <img src="assets/images/m_focuser.png" alt="The Focuser" class="feature-mascot-img" />
+        </div>
+      </div>
+
+      <!-- 5. Lightweight & Fast (The Speedster) -->
+      <div class="neo-card f-card small dark">
+        <div class="f-card-content">
+          <h3 class="highlight">The Speedster</h3>
+          <p style="margin-bottom: 20px; font-weight: 500;">Lightweight, insanely fast, and completely local. Never
+            slows down your browser.</p>
+        </div>
+        <div class="f-card-image" style="width: 100px; height: 100px;">
+          <img src="assets/images/m_speedster.png" alt="The Speedster" class="feature-mascot-img" />
+        </div>
+      </div>
+
+      <!-- 6. Break Reminders (The Break Buddy) -->
+      <div class="neo-card f-card small accent">
+        <div class="f-card-content">
+          <h3 class="highlight-dark">The Break Buddy</h3>
+          <p style="margin-bottom: 20px; font-weight: 500;">Reminds you to take breaks and recharge. Avoid burnout.</p>
+        </div>
+        <div class="f-card-image" style="width: 100px; height: 100px;">
+          <img src="assets/images/m_break.png" alt="The Break Buddy" class="feature-mascot-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BlockPi Edge -->
+  <section class="section container">
+    <div class="section-header">
+      <h2 class="section-title highlight">The BlockPi Edge</h2>
+      <p class="section-desc">Why thousands of focus-seekers are switching from traditional blockers.</p>
+    </div>
+
+    <div class="comparison-grid">
+      <!-- Standard Blockers -->
+      <div class="neo-card comp-card competitor-card dark">
+        <div class="comp-header">Standard Blockers</div>
+        <div class="comp-feature cross">
+          <span class="material-symbols-outlined">cancel</span>
+          Sells browsing data
+        </div>
+        <div class="comp-feature cross">
+          <span class="material-symbols-outlined">cancel</span>
+          Heavy CPU impact
+        </div>
+        <div class="comp-feature cross">
+          <span class="material-symbols-outlined">cancel</span>
+          Paid subscriptions
+        </div>
+      </div>
+
+      <!-- BlockPi -->
+      <div class="neo-card comp-card highlight-card primary">
+        <div class="comp-badge">✦ THAT'S US</div>
+        <div class="comp-header highlight-dark">BlockPi</div>
+        <div class="comp-feature check">
+          <span class="material-symbols-outlined">check_circle</span>
+          Strictly Local (0 Tracking)
+        </div>
+        <div class="comp-feature check">
+          <span class="material-symbols-outlined">check_circle</span>
+          Pure Vanilla JS (0 Bloat)
+        </div>
+        <div class="comp-feature check">
+          <span class="material-symbols-outlined">check_circle</span>
+          100% Free Forever
+        </div>
+        <div class="comp-feature check">
+          <span class="material-symbols-outlined">check_circle</span>
+          No Account Needed
+        </div>
+        <div class="comp-feature check">
+          <span class="material-symbols-outlined">check_circle</span>
+          Works Offline
+        </div>
+      </div>
+
+      <!-- Other Extensions -->
+      <div class="neo-card comp-card competitor-card dark">
+        <div class="comp-header">Other Extensions</div>
+        <div class="comp-feature cross">
+          <span class="material-symbols-outlined">cancel</span>
+          Requires account setup
+        </div>
+        <div class="comp-feature cross">
+          <span class="material-symbols-outlined">cancel</span>
+          Limited free features
+        </div>
+        <div class="comp-feature cross">
+          <span class="material-symbols-outlined">cancel</span>
+          Complex dashboards
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Story Section -->
+  <section id="showcase" class="section container">
+    <div class="section-header">
+      <h2 class="section-title highlight">A Closer Look</h2>
+      <p class="section-desc">Discover the powerful tools built into BlockPi to help you reclaim your digital life.</p>
+    </div>
+
+    <div class="features-story-wrapper">
+      <!-- Feature 1 -->
+      <div class="feature-story">
+        <div class="story-image">
+          <div class="neo-card screenshot-card"><img src="assets/images/dashboard.png" alt="Dashboard"></div>
+        </div>
+        <div class="story-content">
+          <h3 class="highlight">Visual Insights</h3>
+          <p>Track exactly how much time you spend on every site with high-precision charts. All data stays 100% local,
+            so your habits are your business.</p>
+          <ul class="story-list">
+            <li><span class="material-symbols-outlined">analytics</span> Daily & Weekly trends</li>
+            <li><span class="material-symbols-outlined">savings</span> Focus time reclaimed counter</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-story reverse">
+        <div class="story-image">
+          <div class="neo-card screenshot-card" style="max-width: 320px; margin: 0 auto;"><img
+              src="assets/images/Popup.png" alt="Popup"></div>
+        </div>
+        <div class="story-content">
+          <h3 class="highlight-accent">Quick Control</h3>
+          <p>The entire power of BlockPi, right in your toolbar. Toggle focus modes, start timers, and add site limits
+            in seconds without leaving your tab.</p>
+          <ul class="story-list">
+            <li><span class="material-symbols-outlined">timer</span> Instant Focus sessions</li>
+            <li><span class="material-symbols-outlined">bolt</span> One-click site blocking</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-story">
+        <div class="story-image">
+          <div class="neo-card screenshot-card"><img src="assets/images/blocked.png" alt="Blocked"></div>
+        </div>
+        <div class="story-content">
+          <h3 class="highlight">The Wall of Focus</h3>
+          <p>When your time is up, BlockPi steps in. A motivational barrier that reminds you of your goals and pushes
+            you back to deep work.</p>
+          <ul class="story-list">
+            <li><span class="material-symbols-outlined">do_not_disturb_on</span> Hard-to-ignore site blocking</li>
+            <li><span class="material-symbols-outlined">format_quote</span> Motivational daily quotes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-story reverse">
+        <div class="story-image">
+          <div class="neo-card screenshot-card settings-card"><img src="assets/images/options.png" alt="Settings"></div>
+        </div>
+        <div class="story-content">
+          <h3 class="highlight-accent">Granular Control</h3>
+          <p>Make BlockPi work exactly how you do. Custom snooze durations, Strict Mode for discipline, and easy rules
+            management.</p>
+          <ul class="story-list">
+            <li><span class="material-symbols-outlined">tune</span> Custom snooze lengths</li>
+            <li><span class="material-symbols-outlined">lock</span> Strict Mode for high-stakes focus</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wall of Focus -->
+  <section class="section container">
+    <div class="section-header">
+      <h2 class="section-title highlight-accent">Wall of Focus</h2>
+      <p class="section-desc">Join 10,000+ students and professionals who reclaimed their digital freedom.</p>
+    </div>
+
+    <div class="testimonials-grid-expanded">
+      <!-- Testimonial 1 -->
+      <div class="neo-card testimonial-card dark">
+        <div class="user-info">
+          <div class="user-avatar"><img src="https://api.dicebear.com/7.x/lorelei/svg?seed=Sarah" alt="Avatar"></div>
+          <div class="user-details">
+            <h4>Sarah Jenkins</h4>
+            <span>Product Designer</span>
+          </div>
+        </div>
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">"BlockPi is the first blocker that doesn't feel like a heavy police officer. The
+          mascots make focus actually fun!"</p>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="neo-card testimonial-card dark">
+        <div class="user-info">
+          <div class="user-avatar"><img src="https://api.dicebear.com/7.x/lorelei/svg?seed=David" alt="Avatar"></div>
+          <div class="user-details">
+            <h4>David Lawson</h4>
+            <span>Backend Engineer</span>
+          </div>
+        </div>
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">"As a developer, I care about performance. BlockPi's zero-bloat approach is exactly
+          what I was looking for."</p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="neo-card testimonial-card dark">
+        <div class="user-info">
+          <div class="user-avatar"><img src="https://api.dicebear.com/7.x/lorelei/svg?seed=Elena" alt="Avatar"></div>
+          <div class="user-details">
+            <h4>Elena Martinez</h4>
+            <span>Creative Writer</span>
+          </div>
+        </div>
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">"The dashboard insights changed how I look at my news habits. I reclaimed 2 hours of
+          my day."</p>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="neo-card testimonial-card dark">
+        <div class="user-info">
+          <div class="user-avatar"><img src="https://api.dicebear.com/7.x/lorelei/svg?seed=James" alt="Avatar"></div>
+          <div class="user-details">
+            <h4>James Wilson</h4>
+            <span>Computer Science Student</span>
+          </div>
+        </div>
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">"Finally a blocker that doesn't track me! Being open-source makes it the only one I
+          trust."</p>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="neo-card testimonial-card dark">
+        <div class="user-info">
+          <div class="user-avatar"><img src="https://api.dicebear.com/7.x/lorelei/svg?seed=Maya" alt="Avatar"></div>
+          <div class="user-details">
+            <h4>Maya Chen</h4>
+            <span>Freelance Illustrator</span>
+          </div>
+        </div>
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">"The 'Strict Mode' is a lifesaver during deadlines. I've never been this productive
+          before."</p>
+      </div>
+
+      <!-- Testimonial 6 -->
+      <div class="neo-card testimonial-card dark">
+        <div class="user-info">
+          <div class="user-avatar"><img src="https://api.dicebear.com/7.x/lorelei/svg?seed=Robert" alt="Avatar"></div>
+          <div class="user-details">
+            <h4>Robert Taylor</h4>
+            <span>Remote Manager</span>
+          </div>
+        </div>
+        <div class="star-rating">★★★★★</div>
+        <p class="testimonial-text">"Lightweight and effective. My browser feels faster and I feel more in control of my
+          time."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Steps -->
+  <section id="install" class="section container">
+    <div class="section-header">
+      <h2 class="section-title highlight-accent">Installation</h2>
+      <p class="section-desc">Load BlockPi in Developer Mode in just three simple steps.</p>
+    </div>
+
+    <div class="install-grid">
+      <div class="neo-card f-card dark step">
+        <div class="step-icon-box accent">
+          <span class="material-symbols-outlined">download</span>
+        </div>
+        <h3 class="highlight-accent">1</h3>
+        <h4>Download & Extract ZIP</h4>
+        <p>Save the ZIP and extract the folder to your computer.</p>
+      </div>
+
+      <div class="neo-card f-card dark step">
+        <div class="step-icon-box primary">
+          <span class="material-symbols-outlined">extension</span>
+        </div>
+        <h3 class="highlight">2</h3>
+        <h4>Extensions Page</h4>
+        <p>Go to <code>chrome://extensions</code> in your browser.</p>
+      </div>
+
+      <div class="neo-card f-card dark step">
+        <div class="step-icon-box accent">
+          <span class="material-symbols-outlined">rocket_launch</span>
+        </div>
+        <h3 class="highlight-accent">3</h3>
+        <h4>Load Unpacked</h4>
+        <p>Turn on Developer Mode and select the extracted folder.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section container">
+    <div class="section-header" style="justify-content: center; text-align: center;">
+      <h2 class="section-title highlight">Everything You Need to Know</h2>
+    </div>
+
+    <div class="faq-container">
+      <details class="faq-item">
+        <summary>Does BlockPi track my browsing data?</summary>
+        <div class="faq-content">
+          Absolutely not. BlockPi is built on a privacy-first philosophy. All your browsing habits, timers, and rules
+          are stored strictly on your local machine using <code>chrome.storage.local</code>. We have zero servers and
+          zero interest in your data.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Will it slow down my browser?</summary>
+        <div class="faq-content">
+          No. Unlike many extensions that use heavy frameworks like React or Vue, BlockPi is written in pure Vanilla
+          JavaScript. It has a zero-dependency architecture and its background service worker sleeps when you're not
+          browsing tracked sites, ensuring near-zero CPU impact.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is it really 100% free?</summary>
+        <div class="faq-content">
+          Yes. BlockPi is an open-source project created to help people reclaim their focus. There are no "Pro"
+          versions, no hidden subscriptions, and no paid features. Everything you see is free to use forever.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Which browsers does it support?</summary>
+        <div class="faq-content">
+          BlockPi is built on the Manifest V3 standard, making it compatible with Google Chrome, Brave, Microsoft Edge,
+          Opera, and most other Chromium-based browsers.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I whitelist specific sites?</summary>
+        <div class="faq-content">
+          Yes! You can manage your "Tracked Sites" list easily from the popup. If a site isn't on your list, BlockPi
+          won't track it or block it, giving you complete control over your focus sessions.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I uninstall it?</summary>
+        <div class="faq-content">
+          Just like any other extension! Right-click the BlockPi icon in your toolbar and select "Remove from Chrome,"
+          or go to <code>chrome://extensions</code> and click "Remove" on the BlockPi card.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="logo-group">
+        <img src="assets/images/icon128.png" width="32" height="32" alt="BlockPi Logo" />
+        <span class="logo-text">Block<span style="color: var(--primary);">Pi</span></span>
+      </div>
+      <p style="color: #cbd5e1;">&copy; 2026 BlockPi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Full size screenshot">
+  </div>
+
+  <!-- GSAP (core) + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Back to Top visibility
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const screenshotCards = document.querySelectorAll('.screenshot-card');
+
+    screenshotCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const imgSrc = card.querySelector('img').src;
+        lightboxImg.src = imgSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Live Stats Counter Animation
+    function animateCounter(id, start, end, duration) {
+      let obj = document.getElementById(id);
+      let range = end - start;
+      let minTimer = 50;
+      let stepTime = Math.abs(Math.floor(duration / range));
+      stepTime = Math.max(stepTime, minTimer);
+      let startTime = new Date().getTime();
+      let endTime = startTime + duration;
+      let timer;
+
+      function run() {
+        let now = new Date().getTime();
+        let remaining = Math.max((endTime - now) / duration, 0);
+        let value = Math.round(end - (remaining * range));
+        obj.innerHTML = value.toLocaleString();
+        if (value == end) {
+          clearInterval(timer);
+        }
+      }
+
+      timer = setInterval(run, stepTime);
+      run();
+    }
+
+    setTimeout(() => {
+      animateCounter('stats-counter', 0, 142580, 3000);
+    }, 1000);
+
+    // Respect user motion preferences
+    const prefersReduced = (typeof window !== 'undefined') && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReduced) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      document.querySelectorAll('.icon, .mascot, .glow, .impact, .hero-right, .hero-left *').forEach(el => {
+        try { el.style.animation = 'none'; } catch (e) { }
+      });
+
+      const tl = gsap.timeline({ defaults: { duration: 1, ease: 'power3.out' } });
+      tl.from('.live-stats', { x: -20, opacity: 0, duration: 0.8 })
+        .from('.hero-left h1', { y: 40, opacity: 0 }, '-=0.4')
+        .from('.hero-left p', { y: 20, opacity: 0 }, '-=0.5')
+        .from('.actions', { opacity: 0 }, '-=0.3')
+        .from('.mascot', { scale: 0.9, opacity: 0 }, '-=0.6');
+
+      gsap.utils.toArray('.neo-card').forEach(card => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 50, opacity: 0, duration: 0.8, ease: 'power2.out'
+        });
+      });
+
+      gsap.to('.glow', {
+        y: 100, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    }
+  </script>
+
+</body>
+
+</html>
