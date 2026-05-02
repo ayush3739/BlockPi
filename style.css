@@ -153,6 +153,12 @@ h4 {
   color: var(--text-main);
 }
 
+.logo-group:hover,
+.logo-group:active,
+.logo-group:visited {
+  color: var(--text-main);
+}
+
 .logo-text {
   font-size: 28px;
   font-weight: 700;
