@@ -186,8 +186,15 @@ h4 {
 .nav-github-link {
   display: flex;
   align-items: center;
+  gap: 8px;
   color: var(--text-main);
   transition: color 0.2s, transform 0.2s;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.nav-github-link svg {
+  flex-shrink: 0;
 }
 
 .nav-github-link:hover {
