@@ -35,7 +35,7 @@
 - **🛡️ The Guardian (Smart Blocking):** Set per-website daily limits (e.g., YouTube = 30 min/day). BlockPi enforces these limits so you don't have to.
 - **📊 The Analyzer (Visual Insights):** Track your progress with high-precision charts. See exactly where your time goes.
 - **⚡ The Speedster (Zero Bloat):** Written in pure Vanilla JS. Near-zero CPU and memory impact.
-- **🔒 Privacy First:** 100% local storage. Your browsing data never leaves your machine.
+- **🔒 Privacy First: 100% local storage. Your browsing data never leaves your machine. Our landing page uses Umami, a cookie-free analytics tool, to track visits and downloads — no personal data is ever collected.
 
 ---
 
