@@ -1,9 +1,10 @@
 # <img src="assets/images/icon128.png" width="48" height="48" valign="middle"> BlockPi — Stay focused. Browse better.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-4ade80.svg?style=for-the-badge&logoWidth=0)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-818cf8.svg?style=for-the-badge&logoWidth=0)](#)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25_Local-4ade80.svg?style=for-the-badge&logoWidth=0)](#)
-[![Website](https://img.shields.io/badge/Website-Live-818cf8.svg?style=for-the-badge&logoWidth=0)](https://ayush3739.github.io/BlockPi/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e.svg?style=for-the-badge&logoWidth=0)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.0.0-6366f1.svg?style=for-the-badge&logoWidth=0)](#)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25_Local-22c55e.svg?style=for-the-badge&logoWidth=0)](#)
+[![Website](https://img.shields.io/badge/Website-Live-6366f1.svg?style=for-the-badge&logoWidth=0)](https://ayush3739.github.io/BlockPi/)
+[![Downloads](https://img.shields.io/github/downloads/ayush3739/BlockPi/total?color=22c55e&style=for-the-badge&logoWidth=0)](https://github.com/ayush3739/BlockPi/releases)
 
 **BlockPi** is a lightweight, privacy-first browser extension designed to help you reclaim your focus. 
 
