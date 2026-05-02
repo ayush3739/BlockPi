@@ -128,7 +128,9 @@ h4 {
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: padding 0.3s ease;
+  transition: padding 0.3s ease, background 0.3s ease, border-bottom-color 0.3s ease;
+  backface-visibility: hidden;
+  will-change: padding, background, border-bottom-color;
 }
 
 .navbar.scrolled {
@@ -147,6 +149,8 @@ h4 {
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
 }
 
 .logo-text {

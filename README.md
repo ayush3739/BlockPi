@@ -3,8 +3,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-4ade80.svg?style=for-the-badge&logoWidth=0)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.0.0-818cf8.svg?style=for-the-badge&logoWidth=0)](#)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25_Local-4ade80.svg?style=for-the-badge&logoWidth=0)](#)
+[![Website](https://img.shields.io/badge/Website-Live-818cf8.svg?style=for-the-badge&logoWidth=0)](https://ayush3739.github.io/BlockPi/)
 
-**BlockPi** is a lightweight, privacy-first browser extension designed to help you reclaim your focus. It allows you to set daily time limits for distracting websites, automatically blocking them once your time is up. No trackers, no servers, zero bloat.
+**BlockPi** is a lightweight, privacy-first browser extension designed to help you reclaim your focus. 
+
+[**🌐 Visit the Website**](https://ayush3739.github.io/BlockPi/) | [**📥 Download Latest Release**](https://github.com/ayush3739/BlockPi/releases/download/v1.0.0/BlockPi.zip)
 
 ---
 
@@ -48,7 +51,7 @@
 
 BlockPi is currently in developer preview. Follow these simple steps to load it into your browser:
 
-1.  **Download & Extract:** [Download the BlockPi.zip](BlockPi.zip) and extract it to a folder on your computer.
+1.  **Download & Extract:** [Download the BlockPi.zip](https://github.com/ayush3739/BlockPi/releases/download/v1.0.0/BlockPi.zip) and extract it to a folder on your computer.
 2.  **Extensions Page:** Open your browser and navigate to `chrome://extensions`.
 3.  **Developer Mode:** Toggle the **Developer mode** switch in the top right corner.
 4.  **Load Unpacked:** Click the **Load unpacked** button and select the folder where you extracted BlockPi.
