@@ -1,14 +1,14 @@
 # <img src="assets/images/icon128.png" width="48" height="48" valign="middle"> BlockPi — Stay focused. Browse better.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-22c55e.svg?style=for-the-badge&logoWidth=0)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-6366f1.svg?style=for-the-badge&logoWidth=0)](#)
+[![Version](https://img.shields.io/badge/Version-1.1.0-6366f1.svg?style=for-the-badge&logoWidth=0)](#)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25_Local-22c55e.svg?style=for-the-badge&logoWidth=0)](#)
 [![Website](https://img.shields.io/badge/Website-Live-6366f1.svg?style=for-the-badge&logoWidth=0)](https://ayush3739.github.io/BlockPi/)
 [![Downloads](https://img.shields.io/github/downloads/ayush3739/BlockPi/total?color=22c55e&style=for-the-badge&logoWidth=0)](https://github.com/ayush3739/BlockPi/releases)
 
 **BlockPi** is a lightweight, privacy-first browser extension designed to help you reclaim your focus. 
 
-[**🌐 Visit the Website**](https://ayush3739.github.io/BlockPi/) | [**📥 Download Latest Release**](https://github.com/ayush3739/BlockPi/releases/download/v1.0.0/BlockPi.zip)
+[**🌐 Visit the Website**](https://ayush3739.github.io/BlockPi/) | [**📥 Download v1.1.0 Release**](https://github.com/ayush3739/BlockPi/releases/download/v1.1.0/BlockPi_v1.1.0.zip)
 
 ---
 
@@ -52,7 +52,7 @@
 
 BlockPi is currently in developer preview. Follow these simple steps to load it into your browser:
 
-1.  **Download & Extract:** [Download the BlockPi.zip](https://github.com/ayush3739/BlockPi/releases/download/v1.0.0/BlockPi.zip) and extract it to a folder on your computer.
+1.  **Download & Extract:** [Download the BlockPi_v1.1.0.zip](https://github.com/ayush3739/BlockPi/releases/download/v1.1.0/BlockPi_v1.1.0.zip) and extract it to a folder on your computer.
 2.  **Extensions Page:** Open your browser and navigate to `chrome://extensions`.
 3.  **Developer Mode:** Toggle the **Developer mode** switch in the top right corner.
 4.  **Load Unpacked:** Click the **Load unpacked** button and select the folder where you extracted BlockPi.

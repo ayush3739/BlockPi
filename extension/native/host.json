@@ -1,0 +1,10 @@
+{
+    "name": "com.ayush.youtube",
+    "description": "YouTube launcher for Brave PWA",
+    "path": "c:\\Users\\Ayush Maurya\\Desktop\\hexon\\BlockPi\\blockPi_v1_0_0\\native\\host.bat",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://doalpfhfiaedcincpoipbdnpcibagkga/"
+    ],
+    "brave_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+}

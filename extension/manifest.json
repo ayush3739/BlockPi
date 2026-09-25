@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "BlockPi",
+  "version": "1.1.0",
+  "description": "Smart website timer & blocker for productivity with Resource Vault. Set daily limits, auto-block distracting sites, and save links & reels with AI-ready organization.",
+  "permissions": [
+    "storage",
+    "alarms",
+    "tabs",
+    "activeTab",
+    "declarativeNetRequest",
+    "scripting",
+    "nativeMessaging",
+    "webNavigation",
+    "notifications",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "declarative_net_request": {
+    "rule_resources": []
+  },
+  "commands": {
+    "save-to-vault": {
+      "suggested_key": {
+        "default": "Alt+S",
+        "mac": "Alt+S"
+      },
+      "description": "Save current page to BlockPi Vault"
+    }
+  }
+}

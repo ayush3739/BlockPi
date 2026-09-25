@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — BlockPi</title>
+  <!-- Fonts loaded locally via shared.css -->
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+
+<body class="dash-body">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="../icons/icon128.png" width="32" height="32" alt="BlockPi" />
+      <div>
+        <h1 class="sidebar-title" style="color:var(--on-surface)">Block<span style="color:var(--primary)">Pi</span></h1>
+        <p class="sidebar-subtitle t-label">Productivity Active</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-view="today">
+        <span class="material-symbols-outlined">dashboard</span>
+        Overview
+      </button>
+      <button class="nav-item" data-view="week">
+        <span class="material-symbols-outlined">insights</span>
+        This Week
+      </button>
+      <button class="nav-item" data-view="sites">
+        <span class="material-symbols-outlined">layers</span>
+        All Sites
+      </button>
+      <button class="nav-item" data-view="vault">
+        <span class="material-symbols-outlined">bookmark</span>
+        Resource Vault
+      </button>
+      <a href="https://ayush3739.github.io/BlockPi/playbook/" target="_blank" rel="noopener noreferrer" class="nav-item" style="text-decoration:none; margin-top:auto;" title="View Knowledge Curation & Bookmarking Guide on GitHub Pages">
+        <span class="material-symbols-outlined">menu_book</span>
+        Vault Playbook
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="dash-main">
+    <!-- Header -->
+    <header class="dash-header">
+      <h1 id="view-title" class="t-h1">Today's Overview</h1>
+      <p id="view-subtitle" class="t-body-lg" style="color:var(--on-surface-variant)">Here is your productivity
+        breakdown for today.</p>
+    </header>
+
+    <!-- Analytics Section (Overview, Week, All Sites) -->
+    <div id="analytics-section">
+      <!-- Stat Cards -->
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="t-label" style="color:var(--on-surface-variant)">Total Tracked</span>
+            <div class="stat-card-icon"><span class="material-symbols-outlined" style="font-size:18px">schedule</span>
+            </div>
+          </div>
+          <div id="stat-total-time" class="t-h1" style="color:var(--on-background)">0m</div>
+          <div class="stat-card-trend" style="color:var(--primary)">
+            <span class="material-symbols-outlined" style="font-size:16px">arrow_upward</span>
+            <span class="t-body-md">vs yesterday</span>
+          </div>
+        </div>
+
+        <div class="stat-card accent">
+          <div class="stat-card-glow"></div>
+          <div class="stat-card-top" style="position:relative; z-index:1">
+            <span class="t-label" style="color:var(--primary-fixed)">Focus Saved</span>
+            <div class="stat-card-icon accent-icon"><span class="material-symbols-outlined"
+                style="font-size:18px">psychology</span></div>
+          </div>
+          <div id="stat-focus-saved" class="t-h1" style="position:relative; z-index:1; color:var(--on-primary-container)">
+            0m</div>
+          <div class="stat-card-trend" style="position:relative; z-index:1; color:var(--primary-fixed)">
+            <span class="material-symbols-outlined" style="font-size:16px">trending_up</span>
+            <span class="t-body-md">Keep it going!</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="t-label" style="color:var(--on-surface-variant)">Sites Blocked</span>
+            <div class="stat-card-icon"><span class="material-symbols-outlined" style="font-size:18px">block</span></div>
+          </div>
+          <div id="stat-sites-blocked" class="t-h1" style="color:var(--on-background)">0</div>
+          <div class="stat-card-trend" style="color:var(--on-surface-variant)">
+            <span class="material-symbols-outlined" style="font-size:16px">verified_user</span>
+            <span class="t-body-md">Distractions avoided</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart Area -->
+      <div class="chart-card card card-2xl">
+        <div class="chart-card-header">
+          <h2 id="chart-title" class="t-h2">Usage per Site</h2>
+        </div>
+        <div class="chart-container">
+          <canvas id="main-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Site Breakdown -->
+      <div class="breakdown-card card card-2xl">
+        <h2 class="t-h2" style="margin-bottom:var(--sp-lg)">Site Breakdown</h2>
+        <!-- Table Header -->
+        <div class="table-header t-label">
+          <div class="col-site">Site</div>
+          <div class="col-time">Time Used</div>
+          <div class="col-limit">Limit</div>
+          <div class="col-status">Status</div>
+        </div>
+        <!-- Dynamic rows -->
+        <div id="detail-tbody"></div>
+        <div id="empty-detail" class="empty-state" style="padding:var(--sp-xl) 0">
+          <span class="material-symbols-outlined"
+            style="font-size:36px; color:var(--outline); opacity:0.4">analytics</span>
+          <p style="color:var(--on-surface-variant)">No usage data yet today</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vault Section -->
+    <div id="vault-section" style="display:none;">
+      <!-- Vault Toolbar -->
+      <div class="vault-toolbar">
+        <div class="vault-filters">
+          <div class="vault-search-box">
+            <span class="material-symbols-outlined" style="font-size:18px;">search</span>
+            <input id="vault-search-input" type="text" placeholder="Search saved links, tags, domains, notes..."/>
+          </div>
+          <select id="vault-tag-select" class="vault-select" title="Filter by Tag">
+            <option value="all">All Tags</option>
+          </select>
+          <button id="btn-vault-refresh" class="btn-sm btn-icon-only" title="Refresh links list (Auto-syncs on save)" aria-label="Refresh">
+            <span class="material-symbols-outlined" style="font-size:18px;">refresh</span>
+          </button>
+        </div>
+        <div class="vault-actions">
+          <button id="btn-vault-add" class="btn-sm btn-primary">
+            <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+            Add Link
+          </button>
+          <button id="btn-vault-help" class="btn-sm btn-vault-info" title="Quick capture guide: 3 fast ways to bookmark">
+            <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">info</span>
+            How to Bookmark
+          </button>
+          <button id="btn-vault-guide" class="btn-sm" title="View Bookmarking Techniques & Vault Guide">
+            <span class="material-symbols-outlined" style="font-size:16px;">menu_book</span>
+            Playbook
+          </button>
+          <div class="vault-io-group">
+            <button id="btn-export-json" class="btn-sm" title="Export as structured JSON backup">
+              <span class="material-symbols-outlined" style="font-size:15px;">download</span>
+              JSON
+            </button>
+            <button id="btn-export-md" class="btn-sm" title="Export as readable Markdown document">
+              <span class="material-symbols-outlined" style="font-size:15px;">description</span>
+              .MD
+            </button>
+            <button id="btn-import-json" class="btn-sm" title="Import previously exported JSON backup">
+              <span class="material-symbols-outlined" style="font-size:15px;">upload_file</span>
+              Import
+            </button>
+          </div>
+          <input type="file" id="vault-file-input" accept=".json" style="display:none;" />
+        </div>
+      </div>
+
+      <!-- Quick Capture Tips Bar (3 Methods) -->
+      <div id="vault-quick-tips" class="vault-tips-banner">
+        <div class="tips-banner-left">
+          <div class="tips-banner-badge">
+            <span class="material-symbols-outlined" style="font-size:16px;">tips_and_updates</span>
+            <span>3 Ways to Save</span>
+          </div>
+          <div class="tips-banner-steps">
+            <div class="tip-step">
+              <span class="tip-step-num">1</span>
+              <span><strong>Right-Click</strong> any link/page &rarr; <em>Save to BlockPi Vault</em></span>
+            </div>
+            <div class="tip-step-divider">&bull;</div>
+            <div class="tip-step">
+              <span class="tip-step-num">2</span>
+              <span>Press <kbd class="kbd-sm">Alt + S</kbd> on active tab</span>
+            </div>
+            <div class="tip-step-divider">&bull;</div>
+            <div class="tip-step">
+              <span class="tip-step-num">3</span>
+              <span>Click <span class="material-symbols-outlined" style="font-size:14px; vertical-align:middle; color:var(--primary);">bookmark_add</span> in popup</span>
+            </div>
+          </div>
+        </div>
+        <div class="tips-banner-right">
+          <button id="btn-open-tips-modal" class="btn-tips-more" title="View details and shortcut guide">
+            Learn More
+          </button>
+          <button id="btn-dismiss-tips" class="btn-tips-close" title="Dismiss banner">✕</button>
+        </div>
+      </div>
+
+      <!-- Vault Stats -->
+      <div class="stat-cards" style="margin-bottom:var(--sp-lg);">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="t-label" style="color:var(--on-surface-variant)">Total Resources</span>
+            <div class="stat-card-icon"><span class="material-symbols-outlined" style="font-size:18px">bookmarks</span></div>
+          </div>
+          <div id="vault-stat-total" class="t-h1" style="color:var(--on-background)">0</div>
+          <div class="stat-card-trend" style="color:var(--primary)">
+            <span class="material-symbols-outlined" style="font-size:16px">check_circle</span>
+            <span class="t-body-md">Saved safely</span>
+          </div>
+        </div>
+
+        <div class="stat-card accent">
+          <div class="stat-card-glow"></div>
+          <div class="stat-card-top" style="position:relative; z-index:1">
+            <span class="t-label" style="color:var(--primary-fixed)">Unique Domains</span>
+            <div class="stat-card-icon accent-icon"><span class="material-symbols-outlined" style="font-size:18px">language</span></div>
+          </div>
+          <div id="vault-stat-domains" class="t-h1" style="position:relative; z-index:1; color:var(--on-primary-container)">0</div>
+          <div class="stat-card-trend" style="position:relative; z-index:1; color:var(--primary-fixed)">
+            <span class="material-symbols-outlined" style="font-size:16px">hub</span>
+            <span class="t-body-md">Across the web</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="t-label" style="color:var(--on-surface-variant)">Tags Assigned</span>
+            <div class="stat-card-icon"><span class="material-symbols-outlined" style="font-size:18px">label</span></div>
+          </div>
+          <div id="vault-stat-tags" class="t-h1" style="color:var(--on-background)">0</div>
+          <div class="stat-card-trend" style="color:var(--on-surface-variant)">
+            <span class="material-symbols-outlined" style="font-size:16px">tag</span>
+            <span class="t-body-md">Custom topics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vault Column-Based Table -->
+      <div class="card card-2xl" style="padding:var(--sp-md) var(--sp-lg);">
+        <div class="vault-table-header t-label">
+          <div class="col-head-resource">Resource / Link</div>
+          <div class="col-head-tags">Tags</div>
+          <div class="col-head-notes">Metadata & Notes</div>
+          <div class="col-head-date">Date Saved</div>
+          <div class="col-head-actions" style="text-align:right">Actions</div>
+        </div>
+        <div id="vault-tbody"></div>
+        <div id="vault-empty" class="empty-state" style="padding:var(--sp-2xl) var(--sp-md); display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;">
+          <div class="empty-icon-circle">
+            <span class="material-symbols-outlined" style="font-size:32px; color:var(--primary);">bookmark_border</span>
+          </div>
+          <div>
+            <h3 style="color:var(--on-surface); font-weight:700; font-size:18px; margin:0 0 4px;">Your Resource Vault is Empty</h3>
+            <p class="t-body-md" style="color:var(--on-surface-variant); max-width:480px; margin:0 auto;">
+              Stop hoarding dead bookmarks in endless browser folders. Save anything friction-free with 3 simple approaches:
+            </p>
+          </div>
+          <div class="empty-methods-grid">
+            <div class="empty-method-item">
+              <span class="material-symbols-outlined empty-method-icon" style="color:var(--primary)">ads_click</span>
+              <div>
+                <strong>1. Right-Click Any Link</strong>
+                <p>Save reels, videos, or repos directly without opening tabs</p>
+              </div>
+            </div>
+            <div class="empty-method-item">
+              <span class="material-symbols-outlined empty-method-icon" style="color:var(--secondary)">keyboard</span>
+              <div>
+                <strong>2. Hotkey: Alt + S</strong>
+                <p>Instant bookmark shortcut on your active tab</p>
+              </div>
+            </div>
+            <div class="empty-method-item">
+              <span class="material-symbols-outlined empty-method-icon" style="color:#f59e0b">bookmark_add</span>
+              <div>
+                <strong>3. Popup Clipper</strong>
+                <p>1-click header save icon in extension popup</p>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; gap:12px; margin-top:6px;">
+            <button id="btn-empty-add" class="btn-sm btn-primary">
+              <span class="material-symbols-outlined" style="font-size:16px;">add</span> Add Link Manually
+            </button>
+            <button id="btn-empty-playbook" class="btn-sm">
+              <span class="material-symbols-outlined" style="font-size:16px;">menu_book</span> Read Vault Playbook
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add / Edit Link Modal -->
+  <div id="vault-modal" class="modal-overlay" style="display:none">
+    <div class="modal-card" style="width: 440px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-md);">
+        <h3 id="vault-modal-heading" class="t-h3" style="color:var(--on-surface); margin:0;">Add Resource</h3>
+        <button id="vault-modal-close" class="btn-icon-sm" style="font-size:18px; color:var(--on-surface-variant); cursor:pointer;">✕</button>
+      </div>
+      <form id="vault-form">
+        <input type="hidden" id="vault-input-id"/>
+        <div class="modal-field">
+          <label for="vault-input-url">Resource URL *</label>
+          <input id="vault-input-url" type="url" placeholder="https://example.com/blog/article or reel link" required/>
+        </div>
+        <div class="modal-field">
+          <label for="vault-input-title">Title / Name</label>
+          <input id="vault-input-title" type="text" placeholder="e.g. Building RAG with FastAPI"/>
+        </div>
+        <div class="modal-field">
+          <label for="vault-input-tags">Tags (comma-separated)</label>
+          <input id="vault-input-tags" type="text" placeholder="fastapi, ai, backend, reel"/>
+        </div>
+        <div class="modal-field">
+          <label for="vault-input-notes">Metadata & Notes</label>
+          <textarea id="vault-input-notes" rows="3" style="background:var(--surface-container); border:none; border-radius:var(--r-md); padding:8px var(--sp-sm); font-family:'Inter',sans-serif; font-size:13px; color:var(--on-surface); outline:none; resize:vertical;" placeholder="Key takeaways, insights, or why you saved this..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="btn-vault-modal-cancel" class="btn-modal-cancel">Cancel</button>
+          <button type="submit" id="btn-vault-modal-save" class="btn-sm btn-primary">Save to Vault</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- How to Bookmark (3 Methods) Modal Popup -->
+  <div id="vault-help-modal" class="modal-overlay" style="display:none">
+    <div class="modal-card" style="width: 580px; max-width: 95vw;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:var(--sp-md);">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <div class="badge" style="display:inline-flex; align-items:center; gap:4px; font-size:11px; background:rgba(78,222,163,0.15); color:var(--primary); padding:3px 10px; border-radius:var(--r-full); font-weight:700;">
+              <span class="material-symbols-outlined" style="font-size:14px;">flash_on</span>
+              Zero-Friction Bookmarking
+            </div>
+          </div>
+          <h3 class="t-h3" style="color:var(--on-surface); margin:0;">3 Fast Ways to Save & Bookmark Links</h3>
+          <p class="t-body-md" style="color:var(--on-surface-variant); margin:4px 0 0;">
+            Never lose an insightful article, reel, repository, or paper again without interrupting your flow.
+          </p>
+        </div>
+        <button id="vault-help-modal-close" class="btn-icon-sm" style="font-size:18px; color:var(--on-surface-variant); cursor:pointer;">✕</button>
+      </div>
+
+      <div class="help-methods-grid">
+        <!-- Method 1 -->
+        <div class="help-method-card">
+          <div class="help-method-header">
+            <div class="help-method-icon" style="background:rgba(78, 222, 163, 0.15); color:var(--primary);">
+              <span class="material-symbols-outlined">ads_click</span>
+            </div>
+            <div>
+              <span class="help-method-tag">Method 1 &bull; Background Save</span>
+              <h4 class="help-method-title">Right-Click Context Menu</h4>
+            </div>
+          </div>
+          <p class="help-method-desc">
+            Right-click any link on a page (Instagram Reels, YouTube Shorts, GitHub repos, articles) and choose:
+          </p>
+          <div class="help-method-action-pill">
+            <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">bookmark</span>
+            <span>📌 Save link to BlockPi Vault</span>
+          </div>
+          <p class="help-method-hint">
+            <strong>Pro Tip:</strong> Highlight text on any page and right-click &rarr; <em>Save selected URL</em> to attach the quote as your note automatically!
+          </p>
+        </div>
+
+        <!-- Method 2 -->
+        <div class="help-method-card">
+          <div class="help-method-header">
+            <div class="help-method-icon" style="background:rgba(133, 135, 232, 0.15); color:var(--secondary);">
+              <span class="material-symbols-outlined">keyboard</span>
+            </div>
+            <div>
+              <span class="help-method-tag">Method 2 &bull; Instant Hotkey</span>
+              <h4 class="help-method-title">Global Keyboard Shortcut</h4>
+            </div>
+          </div>
+          <p class="help-method-desc">
+            Whenever you are browsing a valuable webpage or technical documentation, simply press:
+          </p>
+          <div class="help-shortcut-box">
+            <kbd class="kbd-large">Alt</kbd>
+            <span style="font-weight:700; color:var(--on-surface-variant); font-size:14px;">+</span>
+            <kbd class="kbd-large">S</kbd>
+          </div>
+          <p class="help-method-hint">
+            Saves the active tab in &lt;500ms and fires a desktop notification confirming your safe capture.
+          </p>
+        </div>
+
+        <!-- Method 3 -->
+        <div class="help-method-card">
+          <div class="help-method-header">
+            <div class="help-method-icon" style="background:rgba(245, 158, 11, 0.15); color:#f59e0b;">
+              <span class="material-symbols-outlined">bookmark_add</span>
+            </div>
+            <div>
+              <span class="help-method-tag">Method 3 &bull; Toolbar Clipper</span>
+              <h4 class="help-method-title">1-Click Popup Header</h4>
+            </div>
+          </div>
+          <p class="help-method-desc">
+            Click the BlockPi extension icon in your browser toolbar, then tap the top-right save icon:
+          </p>
+          <div class="help-method-action-pill">
+            <span class="material-symbols-outlined" style="font-size:16px; color:#f59e0b;">bookmark_add</span>
+            <span>Save Current Tab</span>
+          </div>
+          <p class="help-method-hint">
+            Flashes an animated green checkmark and syncs directly into your Vault table.
+          </p>
+        </div>
+      </div>
+
+      <div class="help-modal-footer">
+        <button id="btn-help-open-guide" class="btn-sm btn-outline-info" style="display:inline-flex; align-items:center; gap:6px;">
+          <span class="material-symbols-outlined" style="font-size:16px;">menu_book</span>
+          Open Complete Vault Playbook & Guide
+        </button>
+        <button id="btn-help-got-it" class="btn-sm btn-primary">
+          Got it!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../libs/chart.min.js"></script>
+  <script src="dashboard.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+/* ═══ BlockPi Popup ═══════════════════════════════ */
+
+.popup-body {
+  width: 360px;
+  min-height: 500px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  border: 1px solid var(--surface-variant);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+/* ── Header ───────────────────────────────────────── */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-md) var(--sp-container);
+  border-bottom: 1px solid var(--surface-variant);
+  background: var(--surface-container-lowest);
+  flex-shrink: 0;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xs);
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, var(--primary-container), var(--surface-tint));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-primary);
+  box-shadow: 0 2px 6px rgba(26, 92, 66, 0.3);
+}
+
+.logo-text {
+  color: var(--primary);
+  margin: 0;
+}
+
+/* ── Main ─────────────────────────────────────────── */
+.popup-main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-container);
+  gap: var(--sp-lg);
+  background: var(--surface);
+}
+
+/* ── Focus Mode Card ─────────────────────────────── */
+.focus-card {
+  background: var(--surface-container-lowest);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--surface-variant);
+  padding: var(--sp-sm) var(--sp-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.focus-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.focus-idle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.focus-durations {
+  display: flex;
+  gap: var(--sp-xs);
+}
+
+.focus-dur-btn {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: var(--r-md);
+  border: 1px solid var(--surface-variant);
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--t-normal);
+}
+
+.focus-dur-btn:hover {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.focus-dur-btn.active {
+  background: rgba(133, 135, 232, 0.15);
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.focus-active {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}/* ── Current Site Card ────────────────────────────── */
+.current-site-card {
+  background: var(--surface-container-lowest);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--surface-variant);
+  padding: var(--sp-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.current-site-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-site-left {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.favicon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.current-site-right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-base);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-fixed);
+}
+
+.current-site-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--outline);
+}
+
+/* ── Section ──────────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--sp-base);
+}
+
+/* ── Sites List ───────────────────────────────────── */
+.sites-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-base);
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.site-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: var(--sp-sm) var(--sp-xs);
+  border-radius: var(--r-md);
+  transition: var(--t-normal);
+  cursor: default;
+}
+
+.site-item:hover {
+  background: var(--surface-container-low);
+}
+
+.site-icon-wrap {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--on-surface-variant);
+}
+
+.site-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 4px;
+}
+
+.site-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.site-info-name {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--on-surface);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+.site-info-stat {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--outline);
+  flex-shrink: 0;
+}
+
+/* ── Add Form ─────────────────────────────────────── */
+.add-section {
+  margin-top: auto;
+}
+
+.add-form {
+  display: flex;
+  gap: var(--sp-xs);
+  align-items: center;
+}
+
+.add-btn {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: var(--r-md);
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--t-normal);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.add-btn:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+/* ── Empty State ──────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: var(--sp-lg) 0;
+  text-align: center;
+}
+
+/* ── Footer ───────────────────────────────────────── */
+.popup-footer {
+  border-top: 1px solid var(--surface-variant);
+  padding: var(--sp-sm) var(--sp-container);
+  background: var(--surface-container-lowest);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xs);
+  background: none;
+  border: none;
+  color: var(--outline);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: var(--r-md);
+  transition: var(--t-normal);
+  font-size: 13px;
+}
+
+.footer-btn:hover {
+  color: var(--primary);
+  background: var(--surface-container-low);
+}

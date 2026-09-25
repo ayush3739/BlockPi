@@ -1,0 +1,233 @@
+/* ═══ BlockPi Options / Settings ═════════════════ */
+
+.options-body {
+  margin: 0;
+  width: 360px;
+  min-height: 500px;
+  padding-bottom: var(--sp-xl);
+}
+
+.options-container {
+  width: 100%;
+  padding: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-lg);
+  box-sizing: border-box;
+}
+
+/* ── Header ───────────────────────────────────────── */
+.options-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--sp-sm);
+  border-bottom: 1px solid var(--surface-variant);
+}
+
+.options-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.btn-link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-base);
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: var(--sp-xs) var(--sp-sm);
+  border-radius: var(--r-md);
+  transition: var(--t-normal);
+}
+.btn-link:hover { background: var(--surface-container); }
+
+/* ── Card Sections ────────────────────────────────── */
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sp-md);
+}
+
+/* ── Rules List ───────────────────────────────────── */
+.rules-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rule-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-sm) 0;
+  border-bottom: 1px solid var(--surface-variant);
+}
+.rule-item:last-child { border-bottom: none; }
+
+.rule-item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+}
+
+.rule-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  background: var(--surface-container-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.rule-item-icon img {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+.rule-item-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xs);
+}
+
+/* ── Setting Row ──────────────────────────────────── */
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-xs) 0;
+  gap: var(--sp-md);
+}
+
+/* ── Data Buttons ─────────────────────────────────── */
+.data-buttons {
+  display: flex;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-md);
+}
+
+.danger-row {
+  border-top: 1px solid var(--surface-variant);
+  padding-top: var(--sp-md);
+  margin-top: var(--sp-xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-md);
+}
+
+/* ── About ────────────────────────────────────────── */
+.about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--sp-xl) var(--sp-lg);
+}
+
+/* ── Toast ────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(78, 222, 163, 0.3);
+  color: var(--primary);
+  padding: 10px 20px;
+  border-radius: var(--r-md);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-xl);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 50;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Modal ────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: modal-bg-in 0.2s ease forwards;
+}
+
+.modal-card {
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--r-xl);
+  padding: var(--sp-lg);
+  width: 320px;
+  box-shadow: var(--shadow-xl);
+  animation: modal-card-in 0.3s ease forwards;
+}
+
+.modal-card h3 {
+  margin-bottom: var(--sp-lg);
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+  margin-bottom: var(--sp-md);
+}
+
+.modal-field label {
+  color: var(--outline);
+}
+
+.modal-field input,
+.modal-field select {
+  background: var(--surface-container);
+  border: none;
+  border-radius: var(--r-md);
+  padding: 8px var(--sp-sm);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--on-surface);
+  outline: none;
+}
+.modal-field input:focus,
+.modal-field select:focus {
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-lg);
+}
+
+.btn-modal-cancel {
+  background: none;
+  border: none;
+  color: var(--on-surface-variant);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: var(--sp-sm) var(--sp-md);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: var(--t-normal);
+}
+.btn-modal-cancel:hover { background: var(--surface-container); }

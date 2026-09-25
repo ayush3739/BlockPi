@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — BlockPi</title>
+  <!-- Fonts loaded locally via shared.css -->
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="options.css" />
+</head>
+
+<body class="options-body">
+  <div class="options-container">
+
+    <!-- Header -->
+    <header class="options-header">
+      <div class="options-header-left">
+        <img src="../icons/icon128.png" width="32" height="32" alt="BlockPi" style="margin-right:8px"/>
+        <h1 class="t-h1">Settings</h1>
+      </div>
+      <button id="btn-back" class="btn-link t-button">
+        <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span>
+        Back
+      </button>
+    </header>
+
+    <!-- Blocking Rules -->
+    <section class="card">
+      <div class="card-title-row">
+        <h2 class="t-h2">Blocking Rules</h2>
+        <span id="rules-count" class="badge badge-primary">0</span>
+      </div>
+      <div id="rules-list" class="rules-list"></div>
+      <div id="rules-empty" class="empty-state">
+        <span class="material-symbols-outlined" style="font-size:36px; color:var(--outline); opacity:0.4">rule</span>
+        <p class="t-body-md" style="color:var(--on-surface-variant)">No rules configured. Add sites from the popup.</p>
+      </div>
+    </section>
+
+    <!-- Snooze & Focus Settings -->
+    <section class="card">
+      <h2 class="t-h2" style="margin-bottom:var(--sp-md)">Behavior</h2>
+
+      <div class="setting-row">
+        <div>
+          <p class="t-body-lg" style="color:var(--on-surface); font-weight:500">Enable Quick Snooze</p>
+          <p class="t-body-md" style="color:var(--on-surface-variant)">Allow temporary pauses from the blocked page.
+          </p>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="snooze-enabled" checked />
+          <div class="toggle-track">
+            <div class="toggle-thumb"></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="setting-row" style="border-top:1px solid var(--surface-variant); padding-top:var(--sp-md)">
+        <div>
+          <p class="t-body-lg" style="color:var(--on-surface); font-weight:500">Snooze Duration</p>
+          <p class="t-body-md" style="color:var(--on-surface-variant)">Minutes for a quick snooze session.</p>
+        </div>
+        <input id="snooze-duration" class="input-sm" type="number" value="5" min="1" max="30" />
+      </div>
+
+      <div class="setting-row" style="border-top:1px solid var(--surface-variant); padding-top:var(--sp-md)">
+        <div>
+          <p class="t-body-lg" style="color:var(--on-surface); font-weight:500">
+            <span class="material-symbols-outlined" style="font-size:18px; vertical-align:middle; color:var(--error)">lock</span>
+            Strict Mode
+          </p>
+          <p class="t-body-md" style="color:var(--on-surface-variant)">Require typing a regret sentence to unlock snooze. No easy escapes.</p>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="strict-mode" />
+          <div class="toggle-track">
+            <div class="toggle-thumb"></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="setting-row" style="border-top:1px solid var(--surface-variant); padding-top:var(--sp-md)">
+        <div>
+          <p class="t-body-lg" style="color:var(--on-surface); font-weight:500">Focus Duration</p>
+          <p class="t-body-md" style="color:var(--on-surface-variant)">Default Pomodoro timer length (minutes).</p>
+        </div>
+        <input id="focus-duration" class="input-sm" type="number" value="25" min="5" max="120" />
+      </div>
+
+      <div class="setting-row" style="border-top:1px solid var(--surface-variant); padding-top:var(--sp-md)">
+        <div>
+          <p class="t-body-lg" style="color:var(--on-surface); font-weight:500">Quick Add Limit</p>
+          <p class="t-body-md" style="color:var(--on-surface-variant)">Default daily limit for Quick Add buttons (minutes).</p>
+        </div>
+        <input id="quick-add-minutes" class="input-sm" type="number" value="15" min="1" max="1440" />
+      </div>
+
+      <div class="setting-row" style="border-top:1px solid var(--surface-variant); padding-top:var(--sp-md)">
+        <div>
+          <p class="t-body-lg" style="color:var(--on-surface); font-weight:500">
+            <span class="material-symbols-outlined" style="font-size:18px; vertical-align:middle; color:var(--primary)">open_in_new</span>
+            Open YouTube in Brave PWA
+          </p>
+          <p class="t-body-md" style="color:var(--on-surface-variant)">
+            Automatically redirect YouTube links to the Brave App.
+            <a href="#" id="link-native-setup" style="color:var(--primary); text-decoration:none; margin-left:8px;">View Setup Instructions</a>
+          </p>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="youtube-brave-pwa" />
+          <div class="toggle-track">
+            <div class="toggle-thumb"></div>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <!-- Data Management -->
+    <section class="card">
+      <h2 class="t-h2" style="margin-bottom:var(--sp-xs)">Data Management</h2>
+      <p class="t-body-md" style="color:var(--on-surface-variant); margin-bottom:var(--sp-md)">Securely backup your
+        rules or migrate them to a new device.</p>
+
+      <div class="data-buttons">
+        <button id="btn-export" class="btn-surface" style="flex:1">
+          <span class="material-symbols-outlined" style="font-size:18px">download</span>
+          Export Settings
+        </button>
+        <button id="btn-import" class="btn-surface" style="flex:1">
+          <span class="material-symbols-outlined" style="font-size:18px">upload</span>
+          Import Settings
+        </button>
+      </div>
+
+      <div class="danger-row">
+        <div>
+          <p class="t-body-lg" style="color:var(--error); font-weight:500">Factory Reset</p>
+          <p class="t-body-md" style="color:var(--on-surface-variant)">Permanently delete all custom rules.</p>
+        </div>
+        <button id="btn-clear" class="btn-danger-outline">Reset Data</button>
+      </div>
+      <input type="file" id="import-file" accept=".json" hidden />
+    </section>
+
+    <!-- About -->
+    <section class="card about-card">
+      <img src="../icons/icon128.png" width="48" height="48" alt="BlockPi" style="margin-bottom:var(--sp-sm)"/>
+      <h2 class="t-h2" style="margin-bottom:var(--sp-base); color:var(--on-surface)">Block<span style="color:var(--primary)">Pi</span></h2>
+      <p class="t-body-md" style="color:var(--on-surface-variant); margin-bottom:var(--sp-md)">Version 1.0.0 (Stable)
+      </p>
+      <p class="t-body-md" style="color:var(--on-surface-variant)">All data stays on your device. No tracking. No ads.
+      </p>
+    </section>
+
+    <!-- Native Messaging Instructions Modal (Hidden by default) -->
+    <div id="native-setup-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-card" style="max-width: 500px;">
+        <h3 class="t-h2" style="margin-bottom: var(--sp-base);">YouTube PWA Setup</h3>
+        <div style="color: var(--on-surface-variant); font-size: 14px; line-height: 1.6;">
+          <p style="margin-bottom: 12px;">Because of browser security, Chrome cannot directly open external apps. You need to install a small "Native Messaging Host" on your computer once.</p>
+          <ol style="padding-left: 20px; margin-bottom: 16px;">
+            <li style="margin-bottom: 8px;">Open your Chrome extensions page (<code style="background: var(--surface-variant); padding: 2px 4px; border-radius: 4px;">chrome://extensions</code>).</li>
+            <li style="margin-bottom: 8px;">Find <b>BlockPi</b> and copy its <b>ID</b>.</li>
+            <li style="margin-bottom: 8px;">Open a Command Prompt or Terminal.</li>
+            <li style="margin-bottom: 8px;">Run the installation script located in the extension folder:
+              <pre style="background: var(--surface-variant); padding: 8px; border-radius: 4px; overflow-x: auto; margin-top: 4px;">python "native/install.py"</pre>
+            </li>
+            <li>Paste your Extension ID when prompted.</li>
+          </ol>
+          <p style="font-weight: bold; color: var(--on-surface);">Note: You must have Python installed on your PC.</p>
+        </div>
+        <div class="modal-actions" style="margin-top: var(--sp-lg);">
+          <button class="btn-primary" id="btn-close-native-modal">Got it</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast">
+      <span id="toast-message"></span>
+    </div>
+  </div>
+
+  <script src="options.js" type="module"></script>
+</body>
+
+</html>

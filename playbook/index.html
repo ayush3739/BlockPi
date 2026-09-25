@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resource Vault Playbook & Guide — BlockPi</title>
+  <link rel="icon" type="image/png" href="../assets/images/icon128.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="guide.css" />
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c2bf85d-8e5a-41c9-9310-b9693fc7922f"></script>
+</head>
+<body class="guide-body">
+  <div class="ambient-glow top-glow"></div>
+  <div class="ambient-glow right-glow"></div>
+
+  <!-- Header -->
+  <header class="guide-header">
+    <div class="guide-header-container">
+      <div class="guide-brand">
+        <img src="../assets/images/icon128.png" width="32" height="32" alt="BlockPi" class="brand-icon" />
+        <div>
+          <span class="brand-name">Block<span style="color:var(--primary)">Pi</span></span>
+          <span class="brand-badge">Vault Playbook</span>
+        </div>
+      </div>
+      <div class="guide-header-actions">
+        <a href="../index.html" class="btn-surface t-button" id="btn-back-home" data-umami-event="Playbook Back Home">
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="guide-container">
+    <!-- Sidebar Navigation -->
+    <aside class="guide-toc">
+      <div class="toc-card">
+        <div class="toc-title">
+          <span class="material-symbols-outlined" style="font-size:18px; color:var(--primary);">menu_book</span>
+          Playbook Contents
+        </div>
+        <nav class="toc-nav">
+          <a href="#problem" class="toc-link active">1. The Bookmark Graveyard</a>
+          <a href="#pipeline" class="toc-link">2. The 4-Stage Pipeline</a>
+          <a href="#tagging-matrix" class="toc-link">3. 3-Dimensional Tagging</a>
+          <a href="#frameworks" class="toc-link">4. P.A.R.A. & Summarization</a>
+          <a href="#shortcuts" class="toc-link">5. BlockPi Clipper Pro-Tips</a>
+          <a href="#weekly-review" class="toc-link">6. 5-Min Weekly Triage</a>
+          <a href="#second-brain" class="toc-link">7. Obsidian & Notion Bridge</a>
+          <a href="#sandbox" class="toc-link">8. Interactive Tag Assistant</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="guide-content">
+
+      <!-- Hero Section -->
+      <section class="hero-section card card-2xl">
+        <div class="hero-badge">
+          <span class="material-symbols-outlined" style="font-size:16px;">auto_awesome</span>
+          Personal Knowledge Curation
+        </div>
+        <h1 class="hero-title">The Art & Science of Digital Bookmarking</h1>
+        <p class="hero-subtitle">
+          How to stop hoarding dead links in browser folders and build an active, frictionless Personal Resource Vault that you actually use and learn from.
+        </p>
+        <div class="hero-tags">
+          <span class="hero-pill"><span class="material-symbols-outlined" style="font-size:16px;">flash_on</span> Zero-Friction Capture</span>
+          <span class="hero-pill"><span class="material-symbols-outlined" style="font-size:16px;">tag</span> Multi-Dimensional Tags</span>
+          <span class="hero-pill"><span class="material-symbols-outlined" style="font-size:16px;">hub</span> Second Brain Bridge</span>
+          <span class="hero-pill"><span class="material-symbols-outlined" style="font-size:16px;">checklist</span> 5-Min Weekly Triage</span>
+        </div>
+      </section>
+
+      <!-- Section 1: The Problem -->
+      <section id="problem" class="guide-section">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <div>
+            <h2 class="t-h2 section-heading">Why Traditional Bookmarks Fail (The Bookmark Graveyard)</h2>
+            <p class="section-desc">Everyone saves links. Almost nobody ever reads them. Here is why conventional bookmarking breaks down:</p>
+          </div>
+        </div>
+
+        <div class="problem-grid">
+          <div class="problem-card card">
+            <div class="problem-icon" style="background:rgba(239, 68, 68, 0.15); color:#ef4444;">
+              <span class="material-symbols-outlined">psychology_alt</span>
+            </div>
+            <h3 class="problem-title">The Collector's Fallacy</h3>
+            <p class="problem-text">
+              Saving a link produces a dopamine hit that feels like you've learned something. But <strong>saving is not learning</strong>. Without a capture context (why did you save it?), the link becomes digital clutter that you ignore.
+            </p>
+          </div>
+
+          <div class="problem-card card">
+            <div class="problem-icon" style="background:rgba(245, 158, 11, 0.15); color:#f59e0b;">
+              <span class="material-symbols-outlined">folder_off</span>
+            </div>
+            <h3 class="problem-title">Rigid Folder Paralysis</h3>
+            <p class="problem-text">
+              Folders force every resource into a single home. If you find an article titled <em>"FastAPI & PostgreSQL on Docker"</em>, do you file it under <code>/Backend</code>, <code>/Database</code>, or <code>/DevOps</code>? Tags solve this by allowing multiple overlapping dimensions.
+            </p>
+          </div>
+
+          <div class="problem-card card">
+            <div class="problem-icon" style="background:rgba(133, 135, 232, 0.15); color:var(--secondary);">
+              <span class="material-symbols-outlined">tab_close</span>
+            </div>
+            <h3 class="problem-title">Capture Friction & Lost Focus</h3>
+            <p class="problem-text">
+              If saving an Instagram Reel, YouTube video, or blog requires opening a new tab, copying the URL, opening a bookmarks bar, and picking a folder, you get pulled out of your flow state and lose focus.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: 4-Stage Pipeline -->
+      <section id="pipeline" class="guide-section">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <div>
+            <h2 class="t-h2 section-heading">The 4-Stage Modern Knowledge Pipeline</h2>
+            <p class="section-desc">A lightweight workflow designed to capture at the speed of thought without overwhelming you.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-steps">
+          <div class="step-card card">
+            <div class="step-badge">STAGE 1</div>
+            <div class="step-icon"><span class="material-symbols-outlined">mouse</span></div>
+            <h3 class="step-title">Frictionless Capture</h3>
+            <p class="step-text">Save without opening. Right-click links (Reels, videos, repos) or use <code>Alt + S</code> to grab instantly. Take 3 seconds max.</p>
+            <div class="step-subtext"><span class="material-symbols-outlined" style="font-size:14px;">timer</span> Time spent: &lt; 3 seconds</div>
+          </div>
+
+          <div class="step-card card">
+            <div class="step-badge">STAGE 2</div>
+            <div class="step-icon"><span class="material-symbols-outlined">edit_note</span></div>
+            <h3 class="step-title">Context Anchoring</h3>
+            <p class="step-text">Highlight a punchline or add a 1-sentence note answering: <em>"Why will my future self want to see this?"</em></p>
+            <div class="step-subtext"><span class="material-symbols-outlined" style="font-size:14px;">timer</span> Time spent: &lt; 10 seconds</div>
+          </div>
+
+          <div class="step-card card">
+            <div class="step-badge">STAGE 3</div>
+            <div class="step-icon"><span class="material-symbols-outlined">label</span></div>
+            <h3 class="step-title">Multi-Dimensional Tagging</h3>
+            <p class="step-text">Assign 2-3 tags across Status, Topic, and Format (e.g. <code>#to-read</code>, <code>#fastapi</code>, <code>#reel</code>) instead of filing in folders.</p>
+            <div class="step-subtext"><span class="material-symbols-outlined" style="font-size:14px;">timer</span> Time spent: &lt; 5 seconds</div>
+          </div>
+
+          <div class="step-card card">
+            <div class="step-badge">STAGE 4</div>
+            <div class="step-icon"><span class="material-symbols-outlined">auto_fix_high</span></div>
+            <h3 class="step-title">Synthesis & Retrieval</h3>
+            <p class="step-text">Search instantly across your column table in the dashboard, or export to Markdown for Obsidian/Notion second-brain synthesis.</p>
+            <div class="step-subtext"><span class="material-symbols-outlined" style="font-size:14px;">cycle</span> Weekly triage loop</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Tagging Matrix -->
+      <section id="tagging-matrix" class="guide-section">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <div>
+            <h2 class="t-h2 section-heading">The 3-Dimensional Tagging Taxonomy</h2>
+            <p class="section-desc">Never tag with random keywords. Use this three-dimensional model to make any resource discoverable in seconds.</p>
+          </div>
+        </div>
+
+        <div class="matrix-grid">
+          <div class="matrix-card card">
+            <div class="matrix-header">
+              <span class="matrix-dim">DIMENSION A</span>
+              <h3 class="matrix-title">Action / Status</h3>
+            </div>
+            <p class="matrix-desc">What action does this resource require from you?</p>
+            <div class="tag-list">
+              <div class="tag-item"><span class="tag-pill tag-status">#to-read</span> <span class="tag-desc">Long articles or essays to read with focus</span></div>
+              <div class="tag-item"><span class="tag-pill tag-status">#to-try</span> <span class="tag-desc">Code libraries, CLI tools, or repos to run</span></div>
+              <div class="tag-item"><span class="tag-pill tag-status">#reference</span> <span class="tag-desc">Cheat sheets, API specs, docs to keep forever</span></div>
+              <div class="tag-item"><span class="tag-pill tag-status">#swipe-file</span> <span class="tag-desc">Inspiring UI designs, copywriting, landing pages</span></div>
+              <div class="tag-item"><span class="tag-pill tag-status">#archive</span> <span class="tag-desc">Consumed items kept for historical search</span></div>
+            </div>
+          </div>
+
+          <div class="matrix-card card">
+            <div class="matrix-header">
+              <span class="matrix-dim">DIMENSION B</span>
+              <h3 class="matrix-title">Topic / Domain</h3>
+            </div>
+            <p class="matrix-desc">What subject or technical domain does it cover?</p>
+            <div class="tag-list">
+              <div class="tag-item"><span class="tag-pill tag-topic">#ai</span> <span class="tag-desc">LLMs, Prompting, Model releases</span></div>
+              <div class="tag-item"><span class="tag-pill tag-topic">#rag</span> <span class="tag-desc">Vector databases, Embeddings, Chunking</span></div>
+              <div class="tag-item"><span class="tag-pill tag-topic">#backend</span> <span class="tag-desc">FastAPI, Node.js, Go, Microservices</span></div>
+              <div class="tag-item"><span class="tag-pill tag-topic">#frontend</span> <span class="tag-desc">React, CSS, Animations, UI architecture</span></div>
+              <div class="tag-item"><span class="tag-pill tag-topic">#system-design</span> <span class="tag-desc">Scalability, Caching, High availability</span></div>
+              <div class="tag-item"><span class="tag-pill tag-topic">#dsa</span> <span class="tag-desc">Data structures, Algorithms, LeetCode</span></div>
+            </div>
+          </div>
+
+          <div class="matrix-card card">
+            <div class="matrix-header">
+              <span class="matrix-dim">DIMENSION C</span>
+              <h3 class="matrix-title">Format / Media</h3>
+            </div>
+            <p class="matrix-desc">What medium is this resource presented in?</p>
+            <div class="tag-list">
+              <div class="tag-item"><span class="tag-pill tag-format">#reel</span> <span class="tag-desc">Instagram Reels, YouTube Shorts (quick tips)</span></div>
+              <div class="tag-item"><span class="tag-pill tag-format">#video</span> <span class="tag-desc">Full YouTube tutorials, conference talks, demos</span></div>
+              <div class="tag-item"><span class="tag-pill tag-format">#repo</span> <span class="tag-desc">GitHub repository or open-source codebase</span></div>
+              <div class="tag-item"><span class="tag-pill tag-format">#article</span> <span class="tag-desc">Technical blog posts, substack, Medium</span></div>
+              <div class="tag-item"><span class="tag-pill tag-format">#paper</span> <span class="tag-desc">ArXiv research papers, technical whitepapers</span></div>
+              <div class="tag-item"><span class="tag-pill tag-format">#tool</span> <span class="tag-desc">SaaS product, utility webapp, extension</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="formula-box card">
+          <div class="formula-label">THE WINNING COMBO</div>
+          <div class="formula-eq">
+            <span class="tag-pill tag-status">#to-read</span>
+            <span class="formula-op">+</span>
+            <span class="tag-pill tag-topic">#rag</span>
+            <span class="formula-op">+</span>
+            <span class="tag-pill tag-format">#paper</span>
+            <span class="formula-arrow">➔</span>
+            <span class="formula-result">"An ArXiv RAG paper I need to read this weekend"</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Frameworks -->
+      <section id="frameworks" class="guide-section">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <div>
+            <h2 class="t-h2 section-heading">Proven Frameworks: P.A.R.A. & Progressive Summarization</h2>
+            <p class="section-desc">World-class productivity methodologies tailored specifically for your BlockPi Resource Vault.</p>
+          </div>
+        </div>
+
+        <div class="framework-cards">
+          <div class="framework-card card">
+            <div class="card-title-row">
+              <h3 class="t-h2">P.A.R.A. Applied to Digital Links</h3>
+              <span class="badge badge-primary">Organization</span>
+            </div>
+            <p class="t-body-md" style="color:var(--on-surface-variant); margin-bottom:var(--sp-md);">
+              Invented by Tiago Forte (<em>Building a Second Brain</em>), P.A.R.A. prioritizes resources based on their actionability, not just abstract subject matter.
+            </p>
+            <div class="para-table">
+              <div class="para-row">
+                <div class="para-col-key"><span class="para-badge p">P</span> Projects</div>
+                <div class="para-col-val">Resources tied to active projects with a deadline. (e.g. <code>#proj-auth</code>, <code>#proj-portfolio</code>). Highest review priority.</div>
+              </div>
+              <div class="para-row">
+                <div class="para-col-key"><span class="para-badge a">A</span> Areas</div>
+                <div class="para-col-val">Ongoing responsibilities without an end-date. (e.g. <code>#area-devops</code>, <code>#area-health</code>).</div>
+              </div>
+              <div class="para-row">
+                <div class="para-col-key"><span class="para-badge r">R</span> Resources</div>
+                <div class="para-col-val">Topics of ongoing curiosity or reference. (e.g. <code>#res-postgres</code>, <code>#res-system-design</code>).</div>
+              </div>
+              <div class="para-row">
+                <div class="para-col-key"><span class="para-badge ar">A</span> Archives</div>
+                <div class="para-col-val">Completed project resources kept for cold search.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="framework-card card">
+            <div class="card-title-row">
+              <h3 class="t-h2">Progressive Summarization for Links</h3>
+              <span class="badge" style="background:rgba(133,135,232,0.15); color:var(--secondary);">Retention</span>
+            </div>
+            <p class="t-body-md" style="color:var(--on-surface-variant); margin-bottom:var(--sp-md);">
+              Never save just a bare link. Enrich it in layers over time so that retrieval is effortless:
+            </p>
+            <div class="summary-layers">
+              <div class="summary-layer">
+                <span class="layer-num">Layer 1</span>
+                <div>
+                  <strong>The Raw Link:</strong> Saved via right-click or <code>Alt+S</code>.
+                </div>
+              </div>
+              <div class="summary-layer">
+                <span class="layer-num">Layer 2</span>
+                <div>
+                  <strong>The Key Quote:</strong> Highlighted snippet saved directly via BlockPi right-click selection.
+                </div>
+              </div>
+              <div class="summary-layer highlight">
+                <span class="layer-num">Layer 3</span>
+                <div>
+                  <strong>The 1-Sentence Takeaway:</strong> Written in your own words in the notes box: <em>"PostgreSQL HNSW index scales to 1M vectors with 98% recall at 3ms query latency."</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Clipper Pro-Tips -->
+      <section id="shortcuts" class="guide-section">
+        <div class="section-header">
+          <span class="section-num">05</span>
+          <div>
+            <h2 class="t-h2 section-heading">BlockPi Vault Clipper: Pro-Tips & Shortcuts</h2>
+            <p class="section-desc">Use the built-in clipper features to capture links with zero tab clutter.</p>
+          </div>
+        </div>
+
+        <div class="tips-grid">
+          <div class="tip-card card">
+            <div class="tip-icon"><span class="material-symbols-outlined">link</span></div>
+            <h3 class="tip-title">Right-Click Any Link Without Opening It</h3>
+            <p class="tip-body">
+              Found an Instagram Reel, YouTube Short, or HackerNews link? You don't need to open 20 tabs. Right-click the link and click <strong>📌 Save link to BlockPi Vault</strong>. It saves instantly in the background!
+            </p>
+          </div>
+
+          <div class="tip-card card">
+            <div class="tip-icon"><span class="material-symbols-outlined">format_quote</span></div>
+            <h3 class="tip-title">Highlight Text to Capture Notes Automatically</h3>
+            <p class="tip-body">
+              Highlight an important quote, takeaway, or code snippet on an article, right-click, and select <strong>📌 Save selected URL to BlockPi Vault</strong>. BlockPi attaches that highlighted text as your metadata note!
+            </p>
+          </div>
+
+          <div class="tip-card card">
+            <div class="tip-icon"><span class="material-symbols-outlined">keyboard</span></div>
+            <h3 class="tip-title">Instant Shortcut: Alt + S</h3>
+            <p class="tip-body">
+              When you're on an interesting page, press <strong>Alt + S</strong>. A desktop notification confirms the active tab is safely tucked away in your Vault.
+            </p>
+          </div>
+
+          <div class="tip-card card">
+            <div class="tip-icon"><span class="material-symbols-outlined">bookmark_add</span></div>
+            <h3 class="tip-title">1-Click Popup Save</h3>
+            <p class="tip-body">
+              Click the BlockPi extension icon in your Chrome toolbar and hit the <strong>bookmark_add</strong> icon in the header. It flashes a green checkmark to confirm the save.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Weekly Review -->
+      <section id="weekly-review" class="guide-section">
+        <div class="section-header">
+          <span class="section-num">06</span>
+          <div>
+            <h2 class="t-h2 section-heading">The 5-Minute Weekly Triage Ritual</h2>
+            <p class="section-desc">A simple Friday afternoon habit to achieve "Bookmark Inbox Zero" and prevent hoarding.</p>
+          </div>
+        </div>
+
+        <div class="review-card card card-2xl">
+          <div class="review-steps">
+            <div class="review-step">
+              <div class="step-circle">1</div>
+              <div class="review-text">
+                <h4>Open Your Resource Vault</h4>
+                <p>Click the <strong>Bookmarks</strong> icon in BlockPi popup or head to <code>dashboard.html#vault</code>.</p>
+              </div>
+            </div>
+            <div class="review-step">
+              <div class="step-circle">2</div>
+              <div class="review-text">
+                <h4>Filter by #to-read or This Week</h4>
+                <p>Use the tag filter dropdown to view only items you tagged with <code>#to-read</code> or <code>#to-try</code>.</p>
+              </div>
+            </div>
+            <div class="review-step">
+              <div class="step-circle">3</div>
+              <div class="review-text">
+                <h4>Apply the Rule of 3 (Act, Schedule, or Delete)</h4>
+                <p>
+                  <strong>Quick (&lt;3 min):</strong> Read it now → change tag to <code>#reference</code>.<br/>
+                  <strong>Deep:</strong> Export to your Obsidian / Notion project.<br/>
+                  <strong>Irrelevant:</strong> Click the trash button. Ruthless pruning keeps your vault high-signal!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Second Brain -->
+      <section id="second-brain" class="guide-section">
+        <div class="section-header">
+          <span class="section-num">07</span>
+          <div>
+            <h2 class="t-h2 section-heading">The Obsidian & Notion Second-Brain Bridge</h2>
+            <p class="section-desc">How to export your curated vault into your local Markdown knowledge base.</p>
+          </div>
+        </div>
+
+        <div class="second-brain-grid">
+          <div class="brain-card card">
+            <div class="card-title-row">
+              <h3 class="t-h2">Export as Markdown (.MD)</h3>
+              <span class="badge badge-primary">Obsidian Ready</span>
+            </div>
+            <p class="t-body-md" style="color:var(--on-surface-variant); margin-top:var(--sp-xs);">
+              Click <strong>Export .MD</strong> in the Vault toolbar. BlockPi generates a standard GitHub-flavored Markdown table with clickable links, tags, notes, and dates:
+            </p>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-lang">
+                  <span class="material-symbols-outlined" style="font-size:14px; color:var(--primary); vertical-align:middle; margin-right:4px;">description</span>
+                  vault-export.md
+                </span>
+                <button id="btn-copy-md-sample" class="btn-copy-code" title="Copy sample markdown to clipboard">
+                  <span class="material-symbols-outlined icon-copy" style="font-size:14px;">content_copy</span>
+                  <span class="btn-copy-text">Copy Sample</span>
+                </button>
+              </div>
+              <pre class="code-block"><code id="sample-md-code"># BlockPi Resource Vault Export
+Generated on: 2026-09-25
+
+| Title | URL | Tags | Notes & Metadata | Saved Date |
+| :--- | :--- | :--- | :--- | :--- |
+| **FastAPI Best Practices** | [Link](https://fastapi.tiangolo.com) | &#96;#backend&#96; &#96;#fastapi&#96; | Use async db sessions | 2026-09-25 |
+| **HNSW Vector Search** | [Link](https://arxiv.org/abs/...) | &#96;#ai&#96; &#96;#rag&#96; &#96;#paper&#96; | Sub-5ms recall | 2026-09-25 |</code></pre>
+            </div>
+          </div>
+
+          <div class="brain-card card">
+            <div class="card-title-row">
+              <h3 class="t-h2">Backup & Sync (.JSON)</h3>
+              <span class="badge" style="background:rgba(78,222,163,0.15); color:var(--primary);">Backup & Restore</span>
+            </div>
+            <p class="t-body-md" style="color:var(--on-surface-variant); margin-top:var(--sp-xs);">
+              BlockPi stores everything privately on your machine. To backup or transfer to another computer:
+            </p>
+            <ul class="guide-checklist">
+              <li>Click <strong>Export .JSON</strong> to download your full vault archive with exact IDs and timestamps.</li>
+              <li>On your new browser or profile, click <strong>Import .JSON</strong>.</li>
+              <li>BlockPi automatically deduplicates by URL so existing links are never duplicated or overwritten.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: Interactive Sandbox -->
+      <section id="sandbox" class="guide-section">
+        <div class="section-header">
+          <span class="section-num">08</span>
+          <div>
+            <h2 class="t-h2 section-heading">Interactive Tag Assistant & Sandbox</h2>
+            <p class="section-desc">Test your tagging skills! Select a preset or type a URL to see the recommended 3-dimensional tags and notes.</p>
+          </div>
+        </div>
+
+        <div class="sandbox-card card card-2xl">
+          <div class="sandbox-presets">
+            <span class="t-label" style="color:var(--outline);">Load Example Preset:</span>
+            <button class="btn-preset active" data-preset="reel">📱 Instagram AI Reel</button>
+            <button class="btn-preset" data-preset="repo">🐙 GitHub FastAPI Repo</button>
+            <button class="btn-preset" data-preset="paper">📄 ArXiv RAG Paper</button>
+            <button class="btn-preset" data-preset="tool">🛠️ System Design Tool</button>
+          </div>
+
+          <div class="sandbox-form">
+            <div class="sandbox-field">
+              <label class="t-label">Resource Title</label>
+              <input type="text" id="sb-title" class="input" value="3 Python Async Tricks Nobody Talks About" />
+            </div>
+            <div class="sandbox-field">
+              <label class="t-label">URL</label>
+              <input type="text" id="sb-url" class="input" value="https://www.instagram.com/reel/C7xK9..." />
+            </div>
+            <div class="sandbox-field">
+              <label class="t-label">Recommended Tags (Status + Topic + Format)</label>
+              <input type="text" id="sb-tags" class="input" value="#to-try, #python, #async, #reel" />
+            </div>
+            <div class="sandbox-field">
+              <label class="t-label">Anchor Note (The "Why")</label>
+              <textarea id="sb-notes" class="input" rows="2">Use asyncio.TaskGroup instead of gather for safer cancellation in Python 3.11+</textarea>
+            </div>
+            <div class="sandbox-actions">
+              <button id="btn-sandbox-save" class="btn-primary" data-umami-event="Playbook Sandbox Save">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_task</span>
+                Save this to my BlockPi Vault
+              </button>
+              <span id="sandbox-feedback" class="t-label" style="color:var(--primary); display:none;">
+                ✓ Added to your Vault!
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer CTA -->
+      <footer class="guide-footer card">
+        <div style="text-align:center; max-width:600px; margin:0 auto;">
+          <img src="../assets/images/icon128.png" width="48" height="48" alt="BlockPi" style="margin-bottom:var(--sp-sm)" />
+          <h2 class="t-h1" style="color:var(--on-surface); font-size:22px;">Ready to Curate Smarter?</h2>
+          <p class="t-body-md" style="color:var(--on-surface-variant); margin:var(--sp-sm) 0 var(--sp-lg);">
+            Your Resource Vault is ready. Start clipping with <code>Alt + S</code> or right-click any link on the web.
+          </p>
+          <div style="display:flex; justify-content:center; align-items:center; gap:12px; flex-wrap:wrap;">
+            <a href="../index.html#vault" id="btn-open-vault" class="btn-primary" style="padding:10px 24px;" data-umami-event="Playbook Open Vault Click">
+              <span class="material-symbols-outlined" style="font-size:18px;">bookmarks</span>
+              Open My Vault Dashboard
+            </a>
+            <a href="../index.html#install" class="btn-surface" style="padding:10px 20px;" data-umami-event="Playbook Install Click">
+              <span class="material-symbols-outlined" style="font-size:18px;">download</span>
+              Install Extension
+            </a>
+          </div>
+          <div id="vault-access-hint" style="display:none; margin-top:20px; padding:16px 20px; background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:12px; text-align:left; max-width:520px; margin-left:auto; margin-right:auto;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px; font-weight:600; color:var(--primary); font-size:14px;">
+              <span class="material-symbols-outlined" style="font-size:20px;">lightbulb</span>
+              <span>How to open your Vault in Chrome</span>
+            </div>
+            <p style="font-size:13px; color:var(--on-surface-variant); margin:0 0 8px 0; line-height:1.5;">
+              BlockPi is a 100% private, local Chrome Extension. You can access your Vault anytime:
+            </p>
+            <ul style="font-size:13px; color:var(--on-surface); margin:0 0 10px 0; padding-left:20px; line-height:1.6;">
+              <li>Click the <strong>BlockPi icon</strong> in your browser toolbar &rarr; select <strong>Vault Dashboard</strong>.</li>
+              <li>Or press <kbd style="background:var(--surface-variant); padding:2px 6px; border-radius:4px; font-family:var(--font-mono); font-size:12px;">Alt + S</kbd> on any page to clip links directly.</li>
+            </ul>
+            <p style="font-size:12px; color:var(--on-surface-variant); margin:0;">
+              Don't have BlockPi installed yet? Click <a href="../index.html#install" style="color:var(--primary); text-decoration:underline;" data-umami-event="Playbook Install Hint Click">Install Extension</a> to get started in 30 seconds.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="guide.js" type="module"></script>
+</body>
+</html>

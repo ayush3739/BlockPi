@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlockPi — Time's Up</title>
+  <!-- Fonts loaded locally via shared.css -->
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="blocked.css" />
+</head>
+
+<body class="blocked-body">
+  <!-- Ambient glow -->
+  <div class="ambient-glow"></div>
+  <!-- Floating particles -->
+  <div id="particles" class="particles"></div>
+
+  <!-- Central Card -->
+  <main class="blocked-main">
+    <div class="blocked-card card card-2xl">
+      <!-- Logo -->
+      <div
+        style="display:flex; justify-content:center; align-items:center; gap:var(--sp-xs); margin-bottom:var(--sp-md)">
+        <img src="../icons/icon128.png" width="24" height="24" alt="BlockPi" />
+        <h3 class="t-h3" style="color:var(--on-surface)">BlockPi</h3>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="t-h1" style="font-size: 48px; letter-spacing: -0.02em; margin-bottom: var(--sp-sm);">
+        <span style="color: #ffffff;">Time's</span>
+        <span style="color: var(--primary);">Up!</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="t-body-md"
+        style="color: var(--on-surface-variant); max-width: 80%; margin-bottom: var(--sp-lg); line-height: 1.5;">
+        This website is blocked to help you stay focused<br />and reach your goals.
+      </p>
+
+      <!-- Focus Mode indicator -->
+      <div id="focus-badge" class="focus-badge" style="display:none; margin-bottom: var(--sp-md);">
+        <span class="material-symbols-outlined" style="font-size:16px">target</span>
+        <span class="t-label">Focus Mode Active</span>
+      </div>
+
+      <!-- Domain Pill -->
+      <div class="domain-pill" style="margin-bottom: var(--sp-xl);">
+        <span class="material-symbols-outlined" style="font-size:18px; color:var(--primary)">language</span>
+        <span id="blocked-domain" class="t-button" style="color:var(--primary);">domain.com</span>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <span class="t-label" style="color:var(--outline)">Spent</span>
+          <span id="time-spent" class="t-h2" style="color:var(--on-surface)">—</span>
+        </div>
+        <div class="stat-cell">
+          <span id="limit-label" class="t-label" style="color:var(--outline)">Limit</span>
+          <span id="daily-limit" class="t-h2" style="color:var(--on-surface)">—</span>
+        </div>
+        <div class="stat-cell">
+          <span class="t-label" style="color:var(--outline)">Reset</span>
+          <span id="resets-in" class="t-h2" style="color:var(--on-surface)">—</span>
+        </div>
+      </div>
+
+      <!-- Motivation Banner -->
+      <div id="motivation" class="motivation-banner">
+        <span class="motivation-emoji">🌿</span>
+        <p class="motivation-text t-body-md" style="color:var(--on-surface-variant)">
+          "Focus on being productive instead of busy." Take a breath and return to your core tasks.
+        </p>
+      </div>
+
+      <!-- Strict Mode Message (hidden by default) -->
+      <div id="strict-message" class="strict-challenge"
+        style="display:none; text-align:center; padding:var(--sp-md); background:var(--surface-container); border:1px solid var(--surface-variant); border-radius:var(--r-lg);">
+        <h3 class="t-button" style="color:var(--error); margin-bottom:var(--sp-xs)">
+          <span class="material-symbols-outlined" style="font-size:20px; vertical-align:middle;">lock</span>
+          Strict Mode Active
+        </h3>
+        <p class="t-body-md" style="color:var(--on-surface-variant); font-size:13px;">
+          This website is completely blocked. To access it, you must open the BlockPi extension popup and turn off
+          Strict Mode.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div id="normal-actions" class="blocked-actions">
+        <button id="btn-dashboard" class="btn-primary" style="width:100%">Open Dashboard</button>
+        <button id="btn-snooze" class="btn-ghost" style="width:100%">Snooze 5m</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="blocked.js" type="module"></script>
+</body>
+
+</html>

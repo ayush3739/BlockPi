@@ -1,0 +1,221 @@
+/* ═══ BlockPi Blocked Page ════════════════════════ */
+
+.blocked-body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+}
+
+/* Ambient glow */
+.ambient-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(74,103,65,0.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(96,99,238,0.2) 0%, transparent 50%);
+}
+
+/* Particles container */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Main card area */
+.blocked-main {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px var(--sp-container);
+  margin: auto;
+}
+
+.blocked-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--sp-xl) var(--sp-xl);
+  box-shadow: var(--shadow-xl);
+  animation: card-in 0.5s var(--ease-out) forwards;
+  border: 1px solid var(--primary); /* Glowing mint border */
+  border-radius: 24px;
+}
+
+/* Shield Icon */
+.shield-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(147, 0, 10, 0.15);
+  color: var(--error);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-md);
+  border: 1px solid rgba(255, 180, 171, 0.15);
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* Title */
+.blocked-title {
+  color: var(--on-surface);
+  margin-bottom: var(--sp-xs);
+}
+
+/* Domain pill */
+.domain-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(74, 222, 128, 0.05); /* Slight mint tint */
+  padding: var(--sp-sm) var(--sp-lg);
+  border-radius: var(--r-full);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+/* Stats grid */
+.stats-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-lg);
+}
+
+.stat-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--sp-sm) 0;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--surface-variant);
+  background: var(--surface);
+  gap: var(--sp-base);
+}
+
+/* Motivation banner */
+.motivation-banner {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-sm);
+  text-align: left;
+  background: rgba(26, 92, 66, 0.08);
+  border: 1px solid rgba(26, 92, 66, 0.15);
+  border-radius: var(--r-lg);
+  padding: var(--sp-md);
+  margin-bottom: var(--sp-xl);
+}
+
+.motivation-emoji {
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Action buttons */
+.blocked-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+/* Focus badge */
+.focus-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(133, 135, 232, 0.15);
+  border: 1px solid rgba(133, 135, 232, 0.3);
+  color: #8587e8;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  margin-bottom: var(--sp-sm);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Strict mode challenge */
+.strict-challenge {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  text-align: left;
+  margin-bottom: var(--sp-md);
+}
+
+.strict-target-text {
+  color: var(--on-surface-variant);
+  font-style: italic;
+  background: var(--surface-container);
+  padding: var(--sp-sm);
+  border-radius: var(--r-md);
+  border-left: 3px solid var(--primary);
+  line-height: 1.6;
+}
+
+.strict-textarea {
+  resize: none;
+  min-height: 72px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--surface-container);
+  border: 2px solid var(--outline-variant);
+  border-radius: var(--r-md);
+  padding: var(--sp-sm);
+  color: var(--on-surface);
+  transition: all 0.2s ease;
+}
+
+.strict-textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.strict-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.strict-progress-wrap .progress-track {
+  flex: 1;
+}
+
+/* Mascot Avatar Animation */
+.mascot-avatar {
+  position: absolute;
+  top: -130px; /* Adjusted for 260px width to sit perfectly on the card edge */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.mascot-avatar img {
+  /* Removed border-radius and background so the 2D mascot floats cleanly */
+  transition: transform 0.3s ease;
+  mix-blend-mode: lighten; /* Optional: if the mascot has a black background, this blends it into the dark theme */
+}
+
+.mascot-avatar:hover img {
+  transform: scale(1.1);
+}
+
+/* Removed mascot-inspect keyframes */

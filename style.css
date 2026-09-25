@@ -274,6 +274,71 @@ a {
 }
 
 /* Hero Section */
+.version-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 0px 0px var(--border-color);
+}
+
+.version-pill {
+  background: var(--primary);
+  color: var(--text-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-color);
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.version-banner-text {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.live-stats {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.live-stats .stats-number {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.neo-btn-sm {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--accent);
+  color: var(--text-dark);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0px 3px 0px 0px var(--border-color);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.neo-btn-sm:hover {
+  background: var(--primary);
+  transform: translateY(2px);
+  box-shadow: 0px 1px 0px 0px var(--border-color);
+}
+
 .hero {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -978,15 +1043,246 @@ a {
   border-radius: 12px;
 }
 
+/* ── Resource Vault & 3 Bookmarking Approaches ──── */
+.vault-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(74, 222, 128, 0.15);
+  border: var(--border-width) solid var(--primary);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 0px 0px var(--primary);
+}
+
+.vault-approaches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.approach-card {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.approach-card:hover {
+  transform: translateY(-4px);
+}
+
+.approach-card.primary {
+  background: var(--primary);
+  color: var(--text-dark);
+  box-shadow: 0px 8px 0px 0px var(--accent);
+}
+
+.approach-card.primary:hover {
+  box-shadow: 0px 12px 0px 0px var(--accent);
+}
+
+.approach-card.accent {
+  background: var(--accent);
+  color: var(--text-dark);
+  box-shadow: 0px 8px 0px 0px var(--primary);
+}
+
+.approach-card.accent:hover {
+  box-shadow: 0px 12px 0px 0px var(--primary);
+}
+
+.approach-card.dark {
+  background: var(--bg-light);
+  color: var(--text-main);
+  box-shadow: 0px 8px 0px 0px var(--primary);
+}
+
+.approach-card.dark:hover {
+  box-shadow: 0px 12px 0px 0px var(--primary);
+}
+
+.approach-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.approach-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  border: var(--border-width) solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 3px 0px 0px var(--border-color);
+}
+
+.approach-icon-circle .material-symbols-outlined {
+  font-size: 28px;
+}
+
+.approach-num-badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1.5px solid currentColor;
+}
+
+.approach-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.approach-demo-box {
+  background: rgba(0, 0, 0, 0.2);
+  border: var(--border-width) solid currentColor;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0px 3px 0px 0px currentColor;
+}
+
+.neo-kbd {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  background: #ffffff;
+  color: #0a0a10;
+  border: 1.5px solid #0a0a10;
+  border-radius: 6px;
+  box-shadow: 0px 2px 0px 0px #0a0a10;
+}
+
+.approach-tip {
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.12);
+  border-left: 3px solid currentColor;
+  margin-top: auto;
+}
+
+/* Vault Triad Grid */
+.vault-triad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.triad-card {
+  padding: 28px 24px;
+  background: var(--bg-card);
+  box-shadow: 0px 6px 0px 0px var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.triad-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(74, 222, 128, 0.15);
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.triad-card h4 {
+  font-size: 20px;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.triad-card p {
+  font-size: 14px;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.triad-card code {
+  background: #1e1e2a;
+  color: var(--primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+/* Playbook CTA Banner */
+.vault-playbook-cta {
+  background: var(--primary);
+  color: var(--text-dark);
+  padding: 44px 40px;
+  box-shadow: 0px 8px 0px 0px var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  border-radius: 20px;
+}
+
+.playbook-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: #0a0a10;
+  color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.playbook-cta-right {
+  flex-shrink: 0;
+}
+
 /* Responsive */
 @media (max-width: 1100px) {
 
   .features-grid,
   .features-secondary,
   .comparison-grid,
-  .testimonials-grid-expanded {
+  .testimonials-grid-expanded,
+  .vault-approaches-grid,
+  .vault-triad-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .vault-playbook-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
   }
 
   .competitor-card {

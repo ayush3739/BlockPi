@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to BlockPi</title>
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="welcome.css" />
+</head>
+
+<body class="welcome-body">
+  <!-- Ambient glow -->
+  <div class="ambient-glow"></div>
+  <div id="particles" class="particles"></div>
+
+  <main class="welcome-main">
+    <!-- Step 1: Welcome -->
+    <section id="step-1" class="welcome-step active">
+      <div class="welcome-card">
+        <img src="../icons/icon128.png" width="72" height="72" alt="BlockPi" style="margin-bottom:var(--sp-md)" />
+        <h1 class="t-h1" style="color:var(--on-surface); font-size:28px">
+          Welcome to Block<span style="color:var(--primary)">Pi</span>
+        </h1>
+        <p class="t-body-lg"
+          style="color:var(--on-surface-variant); margin-top:var(--sp-sm); max-width:400px; line-height:1.7">
+          Your personal focus guardian. Set daily limits on distracting websites, track your usage, and reclaim your
+          time.
+        </p>
+        <div class="welcome-features">
+          <div class="feature-chip">
+            <span class="material-symbols-outlined" style="font-size:18px">timer</span>
+            Daily Timers
+          </div>
+          <div class="feature-chip">
+            <span class="material-symbols-outlined" style="font-size:18px">block</span>
+            Auto-Blocking
+          </div>
+          <div class="feature-chip">
+            <span class="material-symbols-outlined" style="font-size:18px">insights</span>
+            Analytics
+          </div>
+          <div class="feature-chip">
+            <span class="material-symbols-outlined" style="font-size:18px">lock</span>
+            Privacy-First
+          </div>
+        </div>
+        <button id="btn-next-1" class="btn-primary welcome-btn">
+          Get Started
+          <span class="material-symbols-outlined" style="font-size:20px">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Step 2: Privacy -->
+    <section id="step-2" class="welcome-step">
+      <div class="welcome-card">
+        <span class="material-symbols-outlined"
+          style="font-size:48px; color:var(--primary); margin-bottom:var(--sp-sm)">shield</span>
+        <h2 class="t-h1" style="color:var(--on-surface)">100% Private</h2>
+        <p class="t-body-lg"
+          style="color:var(--on-surface-variant); margin-top:var(--sp-sm); max-width:400px; line-height:1.7">
+          All your data stays on <strong style="color:var(--primary)">your device</strong>. BlockPi never sends any
+          information to external servers. No tracking. No ads. No accounts.
+        </p>
+        <div class="privacy-badges">
+          <div class="privacy-badge">
+            <span class="material-symbols-outlined" style="font-size:20px">cloud_off</span>
+            <span class="t-label">No Cloud</span>
+          </div>
+          <div class="privacy-badge">
+            <span class="material-symbols-outlined" style="font-size:20px">visibility_off</span>
+            <span class="t-label">No Tracking</span>
+          </div>
+          <div class="privacy-badge">
+            <span class="material-symbols-outlined" style="font-size:20px">person_off</span>
+            <span class="t-label">No Accounts</span>
+          </div>
+        </div>
+        <button id="btn-next-2" class="btn-primary welcome-btn">
+          Continue
+          <span class="material-symbols-outlined" style="font-size:20px">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Step 3: Quick Setup -->
+    <section id="step-3" class="welcome-step">
+      <div class="welcome-card">
+        <span class="material-symbols-outlined"
+          style="font-size:48px; color:var(--primary); margin-bottom:var(--sp-sm)">rocket_launch</span>
+        <h2 class="t-h1" style="color:var(--on-surface)">Quick Setup</h2>
+        <p class="t-body-lg"
+          style="color:var(--on-surface-variant); margin-top:var(--sp-sm); margin-bottom:var(--sp-lg); max-width:400px">
+          Select common distracting sites to start tracking. Each gets a <strong style="color:var(--primary)">30 minute
+            daily limit</strong>. You can customize everything later.
+        </p>
+        <div id="preset-grid" class="preset-grid">
+          <!-- Populated by JS -->
+        </div>
+        <div class="welcome-actions">
+          <button id="btn-skip" class="btn-ghost welcome-btn">Skip for now</button>
+          <button id="btn-setup" class="btn-primary welcome-btn">
+            <span class="material-symbols-outlined" style="font-size:18px">check</span>
+            Add Selected
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Done -->
+    <section id="step-4" class="welcome-step">
+      <div class="welcome-card">
+        <span class="material-symbols-outlined fill"
+          style="font-size:56px; color:var(--primary); margin-bottom:var(--sp-sm)">check_circle</span>
+        <h2 class="t-h1" style="color:var(--on-surface)">You're All Set!</h2>
+        <p class="t-body-lg"
+          style="color:var(--on-surface-variant); margin-top:var(--sp-sm); max-width:400px; line-height:1.7">
+          BlockPi is now active.<br><br>
+          <strong style="color:var(--on-surface)">👉 Please Pin the Extension!</strong><br>
+          Click the puzzle piece <span class="material-symbols-outlined"
+            style="font-size:20px; vertical-align:middle; color:var(--on-surface)">extension</span> in your top right
+          toolbar and click the pin icon <span class="material-symbols-outlined"
+            style="font-size:20px; vertical-align:middle; color:var(--on-surface)">push_pin</span> next to BlockPi so
+          you can easily access your focus tools.
+        </p>
+        <div class="motivation-banner" style="margin-top:var(--sp-lg); max-width:400px">
+          <span class="motivation-emoji">🌿</span>
+          <p class="motivation-text t-body-md" style="color:var(--on-surface-variant)">
+            "The secret of getting ahead is getting started." — Mark Twain
+          </p>
+        </div>
+        <button id="btn-close" class="btn-primary welcome-btn" style="margin-top:var(--sp-lg)">
+          Start Being Productive
+          <span class="material-symbols-outlined" style="font-size:20px">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Progress dots -->
+    <div class="welcome-dots">
+      <span class="dot active" data-step="1"></span>
+      <span class="dot" data-step="2"></span>
+      <span class="dot" data-step="3"></span>
+      <span class="dot" data-step="4"></span>
+    </div>
+  </main>
+
+  <script src="welcome.js" type="module"></script>
+</body>
+
+</html>

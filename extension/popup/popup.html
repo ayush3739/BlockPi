@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=400" />
+  <title>BlockPi</title>
+  <!-- Fonts loaded locally via shared.css -->
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body class="popup-body">
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="logo-group">
+        <img src="../icons/icon128.png" width="24" height="24" alt="BlockPi" style="margin-right:2px"/>
+        <h1 class="logo-text t-h2" style="color:var(--on-surface)">Block<span style="color:var(--primary)">Pi</span></h1>
+      </div>
+      <div style="display:flex; align-items:center; gap:4px">
+        <button id="btn-save-tab" class="btn-icon" aria-label="Save current tab to Vault" title="Save Current Tab to Vault">
+          <span class="material-symbols-outlined" style="font-size:20px">bookmark_add</span>
+        </button>
+        <button id="btn-vault" class="btn-icon" aria-label="Open Resource Vault" title="Resource Vault">
+          <span class="material-symbols-outlined" style="font-size:20px">bookmarks</span>
+        </button>
+        <button id="btn-dashboard" class="btn-icon" aria-label="Open Dashboard" title="Dashboard">
+          <span class="material-symbols-outlined" style="font-size:20px">dashboard</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="popup-main">
+      <!-- Focus Mode Card -->
+      <section id="focus-section" class="focus-card">
+        <div class="focus-card-top">
+          <div style="display:flex; align-items:center; gap:var(--sp-xs)">
+            <span class="material-symbols-outlined" style="font-size:18px; color:var(--secondary)">target</span>
+            <span class="t-button" style="color:var(--on-surface)">Deep Work</span>
+          </div>
+          <span id="focus-timer" class="t-label" style="color:var(--outline)"></span>
+        </div>
+        <div id="focus-idle" class="focus-idle">
+          <div class="focus-durations">
+            <button class="focus-dur-btn active" data-minutes="25">25m</button>
+            <button class="focus-dur-btn" data-minutes="50">50m</button>
+            <button class="focus-dur-btn" data-minutes="90">90m</button>
+          </div>
+          <button id="btn-focus-start" class="btn-primary" style="width:100%; padding:8px">
+            <span class="material-symbols-outlined" style="font-size:18px">play_arrow</span>
+            Start Focus
+          </button>
+        </div>
+        <div id="focus-active" class="focus-active" style="display:none">
+          <div class="progress-track" style="height:6px">
+            <div id="focus-progress" class="progress-fill" style="width:0%; background:var(--secondary)"></div>
+          </div>
+          <button id="btn-focus-end" class="btn-ghost" style="width:100%; padding:6px">
+            <span class="material-symbols-outlined" style="font-size:16px">stop</span>
+            End Focus
+          </button>
+        </div>
+      </section>
+      
+      <!-- Strict Mode Card -->
+      <section class="current-site-card" style="flex-direction: row; align-items: center; justify-content: space-between; padding: 12px 16px;">
+        <div style="display:flex; align-items:center; gap:var(--sp-md)">
+          <span class="material-symbols-outlined" style="font-size:24px; color:var(--error)">block</span>
+          <div style="display:flex; flex-direction:column;">
+            <span class="t-button" style="color:var(--on-surface)">Strict Mode</span>
+            <span class="t-label" style="color:var(--outline); font-size:10px; text-transform:none; letter-spacing:0.02em;">Instantly block all tracked sites</span>
+          </div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="toggle-strict-mode" />
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        </label>
+      </section>
+
+      <!-- Current Site Card -->
+      <section id="current-site-section" class="current-site-card" style="display:none">
+        <div class="current-site-row">
+          <div class="current-site-left">
+            <img id="current-site-favicon" class="favicon" src="" alt="" />
+            <span id="current-site-name" class="t-button">—</span>
+          </div>
+          <div class="current-site-right">
+            <span id="current-site-badge" class="t-label" style="color:var(--on-surface-variant)">0%</span>
+            <span class="status-dot"></span>
+          </div>
+        </div>
+        <div class="progress-track" style="height:6px">
+          <div id="current-site-progress" class="progress-fill" style="width:0%"></div>
+        </div>
+        <div class="current-site-meta">
+          <span id="current-site-used" class="t-label">0m used</span>
+          <span id="current-site-limit" class="t-label">0m limit</span>
+        </div>
+      </section>
+
+      <!-- Tracked Sites List -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="t-label" style="color:var(--outline)">Tracked Sites</h2>
+          <span id="sites-count" class="badge badge-primary">0</span>
+        </div>
+        <ul id="sites-list" class="sites-list"></ul>
+        <div id="empty-state" class="empty-state">
+          <span class="material-symbols-outlined"
+            style="font-size:36px; color:var(--outline); opacity:0.4">query_stats</span>
+          <p style="color:var(--on-surface-variant)">No sites tracked yet</p>
+          <p class="t-label" style="color:var(--outline)">Add a site below to start tracking</p>
+        </div>
+      </section>
+
+      <!-- Add Site -->
+      <section class="section add-section">
+        <h2 class="t-label" style="color:var(--outline)">Add Site</h2>
+        <form id="add-form" class="add-form">
+          <input id="input-domain" class="input" type="text" placeholder="domain.com or domain.com/shorts" required autocomplete="off"
+            style="flex:1" />
+          <input id="input-minutes" class="input" type="number" placeholder="Min" min="1" max="1440" required
+            style="width:64px; text-align:center" />
+          <button id="btn-add-site" type="submit" class="btn-primary" style="padding:0 12px; height:32px; border-radius: var(--r-md) 0 0 var(--r-md); margin-right: -20px;">
+            <span class="material-symbols-outlined" style="font-size:18px">add</span>
+          </button>
+        </form>
+        <div class="quick-add-row" style="display:flex; gap:6px; margin-top:8px; padding-bottom:4px">
+          <button class="btn-quick-add" data-domain="youtube.com/shorts" data-label="YT Shorts" data-minutes="15" title="Quick add YouTube Shorts (15m limit)" style="background:var(--surface); border:1px solid var(--outline); border-radius:12px; padding:4px 10px; font-size:11px; font-weight:500; color:var(--on-surface); cursor:pointer; display:flex; align-items:center; gap:4px; transition:0.2s">
+            <span style="color:#ff0000; font-weight:bold; font-size:12px">▶</span> Shorts
+          </button>
+          <button class="btn-quick-add" data-domain="instagram.com/reels" data-label="IG Reels" data-minutes="15" title="Quick add Instagram Reels (15m limit)" style="background:var(--surface); border:1px solid var(--outline); border-radius:12px; padding:4px 10px; font-size:11px; font-weight:500; color:var(--on-surface); cursor:pointer; display:flex; align-items:center; gap:4px; transition:0.2s">
+            <span style="color:#E1306C; font-weight:bold; font-size:12px">✦</span> Reels
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <button id="btn-options" class="footer-btn t-button">
+        <span class="material-symbols-outlined" style="font-size:16px">settings</span>
+        Settings
+      </button>
+    </footer>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+
+</html>
