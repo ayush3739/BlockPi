@@ -36,6 +36,10 @@
             <span class="material-symbols-outlined" style="font-size:18px">block</span>
             Auto-Blocking
           </div>
+          <div class="feature-chip" style="border-color:var(--primary); background:rgba(78,222,163,0.1); color:var(--primary);">
+            <span class="material-symbols-outlined" style="font-size:18px">bookmark_added</span>
+            Resource Vault
+          </div>
           <div class="feature-chip">
             <span class="material-symbols-outlined" style="font-size:18px">insights</span>
             Analytics
@@ -108,8 +112,58 @@
       </div>
     </section>
 
-    <!-- Step 4: Done -->
+    <!-- Step 4: Resource Vault & Clipper -->
     <section id="step-4" class="welcome-step">
+      <div class="welcome-card">
+        <span class="material-symbols-outlined"
+          style="font-size:48px; color:var(--primary); margin-bottom:var(--sp-sm)">bookmarks</span>
+        <h2 class="t-h1" style="color:var(--on-surface)">Resource Vault & Clipper</h2>
+        <p class="t-body-lg"
+          style="color:var(--on-surface-variant); margin-top:var(--sp-sm); max-width:440px; line-height:1.6">
+          Never let valuable links get lost again. Save articles, reels, repos, and research to your private vault in <strong style="color:var(--primary)">&lt;500ms</strong>.
+        </p>
+        
+        <div style="display:grid; grid-template-columns:1fr; gap:10px; width:100%; margin-top:var(--sp-md); text-align:left;">
+          <div style="background:var(--surface-container); border:1px solid var(--surface-variant); border-radius:var(--r-lg); padding:10px 14px; display:flex; align-items:center; gap:12px;">
+            <div style="background:rgba(78,222,163,0.15); border-radius:8px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <span class="material-symbols-outlined" style="font-size:20px; color:var(--primary)">keyboard</span>
+            </div>
+            <div>
+              <div style="font-size:13px; font-weight:600; color:var(--on-surface);"><kbd style="background:var(--surface-variant); padding:2px 6px; border-radius:4px; font-family:monospace; font-size:12px;">Alt + S</kbd> Global Shortcut</div>
+              <div style="font-size:11px; color:var(--on-surface-variant);">Instant active tab capture with desktop confirmation.</div>
+            </div>
+          </div>
+
+          <div style="background:var(--surface-container); border:1px solid var(--surface-variant); border-radius:var(--r-lg); padding:10px 14px; display:flex; align-items:center; gap:12px;">
+            <div style="background:rgba(133,135,232,0.15); border-radius:8px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <span class="material-symbols-outlined" style="font-size:20px; color:var(--secondary)">ads_click</span>
+            </div>
+            <div>
+              <div style="font-size:13px; font-weight:600; color:var(--on-surface);">Right-Click Clipper & Quotes</div>
+              <div style="font-size:11px; color:var(--on-surface-variant);">Right-click any link or highlighted text to auto-capture quotes.</div>
+            </div>
+          </div>
+
+          <div style="background:var(--surface-container); border:1px solid var(--surface-variant); border-radius:var(--r-lg); padding:10px 14px; display:flex; align-items:center; gap:12px;">
+            <div style="background:rgba(78,222,163,0.15); border-radius:8px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <span class="material-symbols-outlined" style="font-size:20px; color:var(--primary)">tag</span>
+            </div>
+            <div>
+              <div style="font-size:13px; font-weight:600; color:var(--on-surface);">3D Tags & Markdown Export</div>
+              <div style="font-size:11px; color:var(--on-surface-variant);">Tag by status & topic, then 1-click export to Obsidian or Notion.</div>
+            </div>
+          </div>
+        </div>
+
+        <button id="btn-next-vault" class="btn-primary welcome-btn" style="margin-top:var(--sp-md)">
+          Continue
+          <span class="material-symbols-outlined" style="font-size:20px">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Step 5: Done -->
+    <section id="step-5" class="welcome-step">
       <div class="welcome-card">
         <span class="material-symbols-outlined fill"
           style="font-size:56px; color:var(--primary); margin-bottom:var(--sp-sm)">check_circle</span>
@@ -143,6 +197,7 @@
       <span class="dot" data-step="2"></span>
       <span class="dot" data-step="3"></span>
       <span class="dot" data-step="4"></span>
+      <span class="dot" data-step="5"></span>
     </div>
   </main>
 

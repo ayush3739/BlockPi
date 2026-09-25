@@ -31,6 +31,7 @@ function bindEvents() {
   document.getElementById('btn-next-2').addEventListener('click', () => goToStep(3));
   document.getElementById('btn-skip').addEventListener('click', () => goToStep(4));
   document.getElementById('btn-setup').addEventListener('click', handleSetup);
+  document.getElementById('btn-next-vault').addEventListener('click', () => goToStep(5));
   document.getElementById('btn-close').addEventListener('click', () => {
     window.close();
   });
